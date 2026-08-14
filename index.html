@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AURA MEN | أورا مان</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-tertiary-container": "#a17f3b",
+                        "surface": "#fbf9f9",
+                        "on-secondary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed": "#e5e2e1",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#ffdea5",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#000000",
+                        "error": "#ba1a1a",
+                        "secondary-container": "#e0dfde",
+                        "error-container": "#ffdad6",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-container": "#efeded",
+                        "inverse-surface": "#303031",
+                        "surface-variant": "#e3e2e2",
+                        "inverse-primary": "#c8c6c5",
+                        "secondary": "#5e5e5d",
+                        "surface-container-low": "#f5f3f3",
+                        "on-tertiary-fixed": "#261900",
+                        "surface-container-highest": "#e3e2e2",
+                        "on-secondary-fixed": "#1a1c1b",
+                        "on-primary-fixed-variant": "#474646",
+                        "primary-container": "#1c1b1b",
+                        "inverse-on-surface": "#f2f0f0",
+                        "outline-variant": "#c4c7c7",
+                        "on-primary-container": "#858383",
+                        "on-background": "#1b1c1c",
+                        "on-secondary-fixed-variant": "#464746",
+                        "primary": "#000000",
+                        "surface-bright": "#fbf9f9",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "surface-tint": "#5f5e5e",
+                        "surface-dim": "#dbdad9",
+                        "secondary-fixed": "#e3e2e0",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "background": "#fbf9f9",
+                        "on-secondary-container": "#626361",
+                        "outline": "#747878",
+                        "tertiary-container": "#261900",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#c7c6c5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "margin-mobile": "20px",
+                        "md": "24px",
+                        "margin-desktop": "64px",
+                        "xs": "4px",
+                        "lg": "48px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Tajawal"],
+                        "body-sm": ["Tajawal"],
+                        "headline-lg": ["Tajawal"],
+                        "headline-md": ["Tajawal"],
+                        "body-lg": ["Tajawal"],
+                        "label-caps": ["Inter"],
+                        "headline-xl": ["Tajawal"],
+                        "price-display": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "0", "fontWeight": "700" }],
+                        "price-display": ["20px", { "lineHeight": "1", "letterSpacing": "-0.02em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .style-card {
+            transition: flex 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .style-card.expanded {
+            flex: 2;
+        }
+        .style-card.collapsed {
+            flex: 0.5;
+        }
+        .scroll-header.scrolled {
+            background-color: theme('colors.surface-container-lowest');
+            border-bottom: 1px solid theme('colors.outline-variant');
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .scroll-header.scrolled .header-text {
+            color: theme('colors.primary');
+        }
+        .scroll-header.scrolled .header-icon {
+            color: theme('colors.primary');
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen overflow-x-hidden antialiased">
+<!-- Suppressed Top Nav as this is a Splash/Entry page (transactional/linear intent) -->
+<!-- Header (Floating to Solid on Scroll) - Custom for Splash -->
+<header class="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 scroll-header flex flex-row-reverse justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 bg-transparent border-b border-transparent" id="main-header">
+<a class="header-text text-white font-headline-md text-headline-md font-bold tracking-tighter transition-colors duration-300" href="#">
+            AURA MEN
+        </a>
+<!-- Minimal utilities for splash -->
+<div class="flex flex-row-reverse gap-4">
+<button aria-label="Search" class="header-icon text-white hover:opacity-70 transition-colors duration-300 focus:outline-none">
+<span class="material-symbols-outlined text-2xl" data-icon="search">search</span>
+</button>
+<button aria-label="Account" class="header-icon text-white hover:opacity-70 transition-colors duration-300 focus:outline-none hidden md:block">
+<span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
+</button>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full z-0" data-alt="A cinematic, high-fashion editorial photograph of a modern, well-dressed man standing in a vast, architecturally striking minimalist space. He wears a sharply tailored dark suit, exuding luxury and exclusivity. The lighting is dramatic and low-key, with strong shadows and focused spotlights creating a premium, sophisticated atmosphere. The color palette is dominated by deep blacks and rich charcoal grays, embodying high-end menswear." style="background-image: url('FrontEnd/assets/images/img2.jpg')></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10"></div>
+<div class="relative z-20 text-center px-4 md:px-8 max-w-4xl mx-auto flex flex-col items-center gap-y-lg">
+<div class="flex flex-col items-center gap-y-sm">
+<h1 class="text-white font-headline-xl text-headline-xl tracking-tight mb-2 uppercase" style="letter-spacing: 0.1em;">AURA MEN</h1>
+<p class="text-surface-container-high font-body-lg text-body-lg">الفخامة والأناقة في أبهى صورها</p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-md">
+<button class="bg-primary text-white border border-primary px-8 py-4 rounded font-label-caps text-label-caps hover:bg-surface-container-lowest hover:text-primary transition-colors duration-300 w-full sm:w-auto text-center">
+                        استكشف المجموعات
+                    </button>
+<button class="bg-transparent text-white border border-white px-8 py-4 rounded font-label-caps text-label-caps hover:bg-white hover:text-primary transition-colors duration-300 w-full sm:w-auto text-center">
+                        تصفّح مُنسّق الإطلالات الذكي
+                        
+                    </button>
+</div>
+</div>
+</section>
+<!-- Interactive Style Selector -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">اكتشف أسلوبك</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">تشكيلات صُممت خصيصاً لتلائم كل لحظات حياتك، من الإطلالة العملية إلى الأناقة الرسمية المطلقة.</p>
+</div>
+<div class="flex flex-col md:flex-row h-[600px] gap-4" id="style-selector">
+<!-- Casual -->
+<div class="style-card flex-1 relative rounded-xl overflow-hidden cursor-pointer group" tabindex="0">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="A high-end lifestyle fashion photograph of a man wearing premium casual wear. He is dressed in a crisp, unbuttoned linen shirt and tailored chinos, walking confidently down a sunlit, cobblestone European street. The lighting is bright, natural, and airy, reflecting a relaxed yet sophisticated daytime mood. The color palette features neutral tones, soft beiges, and crisp whites, adhering to a minimalist aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAgo8hLvd2biOQ-iSM2c_oZMF_qzv49m2fQJoM1k3x6qBLhJmzvrM5SC0vMKIeGyGyrY66qz9mML9jI9m3icHCQ034KYP-FUnieVxspsPELFMP7Rdycpw9SImlBNCZbTKJ9jP_tF73KAA91AIvVjqHLxKs69XOlcLRSBiIXbnlMelnC-0JoHUnmOb3uhZYGqt41SKdURc2jL7oAPuXW0_LdMR0Q5Pn9dDA5smrZJOs4g7FuwZrghMCw')"></div>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500"></div>
+<div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent h-1/2">
+<h3 class="text-white font-headline-md text-headline-md mb-2">الإطلالة الكاجوال</h3>
+<p class="text-surface-container-high font-body-sm text-body-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 hidden md:block">راحة يومية بلمسة من الرقي، مثالية لعطلات نهاية الأسبوع.</p>
+<span class="text-white font-label-caps text-label-caps mt-4 underline opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 inline-block w-fit">تسوق الآن</span>
+</div>
+</div>
+<!-- Smart Casual -->
+<div class="style-card flex-1 relative rounded-xl overflow-hidden cursor-pointer group" tabindex="0">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="An elegant, editorial-style photograph of a man in smart casual attire standing in a modern art gallery. He wears a tailored unstructured blazer over a high-quality plain t-shirt and smart trousers. The environment is minimalist with white walls and subtle ambient lighting. The mood is contemporary, sharp, and effortless. The color scheme is sleek with navy blues, charcoals, and crisp whites." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC5wLdU0QPqhyLhGDZzYXSsPQonSXVziBKnpF427gZs0ziFCYzrC8VNsPo4kP3twzu93mnNKZyap9kZFTfBk1St1rwEBxdMpFDTgorECfJMwUHnHQs-q-bB3Pk_BcGCsuPZUGavmkHAx3UM3CGXRK6h3txVgtsnEfYuKaVKN9V1y4lb_nC2Brfl1CQpEej07hKfS7qAc9P5UEaGuMUBVXvgetGAPAvoyi8-a_SnmbAt1PFKSv4OR8N8')"></div>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500"></div>
+<div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent h-1/2">
+<h3 class="text-white font-headline-md text-headline-md mb-2">الكاجوال الأنيق</h3>
+<p class="text-surface-container-high font-body-sm text-body-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 hidden md:block">التوازن المثالي بين الاحترافية والراحة العصرية.</p>
+<span class="text-white font-label-caps text-label-caps mt-4 underline opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 inline-block w-fit">تسوق الآن</span>
+</div>
+</div>
+<!-- Formal -->
+<div class="style-card flex-1 relative rounded-xl overflow-hidden cursor-pointer group" tabindex="0">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="A striking portrait of a man in a perfectly tailored, premium formal suit, standing in a dimly lit, luxurious lounge setting. He exudes authority and elegance. The lighting is focused and dramatic, highlighting the fine texture of the wool suit and the crispness of his white dress shirt. The mood is commanding and deeply sophisticated. The color palette relies on deep blacks and crisp whites." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDeoS2uEf1-CqDBHLyDhw3GD8TYgcuXvZ2NbcMvn3-ZsA2J7AKohELYDz9Q6WPs-gkVHhDNkG1tWqHl5IzsbaJrZ13lEymMcWa5-gBiZoDd9LO5n49ITqDsQVgcgtWYeAd_wCcdpKzWdE7cXZIKNDRSr3V5_ePSKFR-EAkgJn3fJnmxyXsA3MAfV-OLj1y989i4pu-9lnqj5ztCh-BGKbtw-iQh59NpQ2yERZHATTtL_qyI7JN9xicY')"></div>
+<div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500"></div>
+<div class="absolute bottom-0 left-0 right-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent h-1/2">
+<h3 class="text-white font-headline-md text-headline-md mb-2">الأناقة الرسمية</h3>
+<p class="text-surface-container-high font-body-sm text-body-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 hidden md:block">بدلات مصممة بعناية فائقة للمناسبات التي تتطلب الكمال.</p>
+<span class="text-white font-label-caps text-label-caps mt-4 underline opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150 inline-block w-fit">تسوق الآن</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Exclusive Collection Teaser -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-surface">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<!-- Text Content -->
+<div class="md:col-span-5 order-2 md:order-1 flex flex-col gap-6 p-8">
+<span class="inline-block bg-primary text-white font-label-caps text-label-caps px-3 py-1 rounded w-fit">جديد الخريف</span>
+<h2 class="font-headline-lg text-headline-lg text-primary leading-tight">تشكيلة "الظل الحالم" لموسم الخريف</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">استوحينا هذه المجموعة من التباين بين الضوء والظلال في الهندسة المعمارية الحديثة. تصاميم حادة، أقمشة فاخرة، وتفاصيل دقيقة تعيد تعريف الأناقة الذكورية.</p>
+<a class="group flex items-center gap-2 text-primary font-label-caps text-label-caps mt-4 w-fit border-b border-primary pb-1 hover:text-on-surface-variant hover:border-on-surface-variant transition-colors" href="#">
+<span>اكتشف المجموعة كاملة</span>
+<span class="material-symbols-outlined text-lg transform transition-transform group-hover:-translate-x-1" data-icon="arrow_back">arrow_back</span>
+</a>
+</div>
+<!-- Asymmetric Image Grid -->
+<div class="md:col-span-7 order-1 md:order-2 grid grid-cols-2 gap-4 h-[600px]">
+<div class="relative h-full w-full rounded-xl overflow-hidden pt-12">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A close-up fashion editorial shot focusing on the intricate details of a high-end men's autumn coat. The texture of the premium wool blend is highlighted by soft, directional studio lighting. The color is a deep, sophisticated charcoal grey. The overall aesthetic is minimalist, focusing strictly on craftsmanship and quality without distractions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdGK5VYGhUerIyPy5qmucMTHHuTzfHXxs-bjbGbroLictaXj1I-5C_j5rSJi-oC2ffSXUm7ZAak5YoFN1zUD-HfhMoRSEV5kvsBkogn-gBUI-e2i-BdztA3ABCrqA7RW9vs-N0OPlaCIbTZwziaKjGNUTX0_VN4o22doU0eRT6ijy7ZNPxIuPhldN0JqWBkdu4dgPjnVv_t9i6bB_lqef1YOvTCONzJXdQ6gPjjAvnokYE6B6QreKM"/>
+</div>
+<div class="relative h-full w-full rounded-xl overflow-hidden pb-12">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A full-length fashion shot of a male model wearing an elegant autumn layered outfit, featuring a sleek dark trench coat over a fine knit turtleneck. He stands against a stark, light grey studio background. The lighting is crisp and cool, creating sharp silhouettes. The color palette emphasizes high contrast between deep blacks and bright whites, reflecting a premium luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv8K1DrUKQ3uOtqMO6RGdqKw4S6-yLgmTamcFNS9pugtENpkro5GebCc4x2djQiAIFSsGJG3XK3jPjOritfxSK0VsIZ7jw95SEHpHikpbvNWPgOzIZ9SUdnrl3BCflHHvc5qjMrbJ5yOloRwRom9ApSktQB100_avRUxGPqK9kec9onQN_jO3L5rdJRMzVLdIYg-LblMAyNfhulVCHkwF-AK0ycEORPVmc0cjn5jZl3LNC0CzDQGPS"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer from JSON -->
+<footer class="w-full py-xl px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-lg text-right bg-primary dark:bg-black text-on-primary dark:text-primary-fixed">
+<div class="flex flex-col gap-4">
+<span class="text-headline-lg font-headline-lg text-white">AURA MEN</span>
+<p class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim mt-2">© 2024 أورا مان. جميع الحقوق محفوظة.</p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-white font-bold mb-2">روابط سريعة</h4>
+<a class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">عن أورا</a>
+<a class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">سياسة الخصوصية</a>
+<a class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">الشروط والأحكام</a>
+<a class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">اتصل بنا</a>
+</div>
+<div class="flex flex-col gap-4 md:col-span-2">
+<h4 class="font-label-caps text-label-caps text-white font-bold mb-2">النشرة الإخبارية</h4>
+<p class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim mb-2">اشترك ليصلك جديد المجموعات والعروض الحصرية.</p>
+<form class="flex flex-col sm:flex-row gap-2">
+<input class="bg-surface-container-low text-primary px-4 py-2 rounded-sm border-none focus:ring-1 focus:ring-primary w-full font-body-sm text-body-sm placeholder-on-surface-variant" placeholder="البريد الإلكتروني" type="email"/>
+<button class="bg-white text-primary px-6 py-2 rounded-sm font-label-caps text-label-caps hover:bg-tertiary-fixed transition-colors whitespace-nowrap" type="button">اشترك</button>
+</form>
+<div class="flex gap-4 mt-4">
+<a aria-label="Instagram" class="text-white hover:text-tertiary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="photo_camera">photo_camera</span>
+</a>
+<a aria-label="Twitter" class="text-white hover:text-tertiary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</a>
+</div>
+</div>
+</footer>
+<script>
+        // Header Scroll Interaction
+        const header = document.getElementById('main-header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Interactive Style Selector (Desktop only)
+        const styleCards = document.querySelectorAll('.style-card');
+        
+        if (window.innerWidth >= 768) { // md breakpoint
+            styleCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    styleCards.forEach(c => {
+                        if (c !== card) {
+                            c.classList.remove('expanded');
+                            c.classList.add('collapsed');
+                        }
+                    });
+                    card.classList.remove('collapsed');
+                    card.classList.add('expanded');
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    styleCards.forEach(c => {
+                        c.classList.remove('expanded', 'collapsed');
+                    });
+                });
+            });
+        }
+    </script>
+</body></html>
