@@ -1,0 +1,20 @@
+.style-card {
+  transition: flex 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.style-card.expanded {
+  flex: 2;
+}
+.style-card.collapsed {
+  flex: 0.5;
+}
+.scroll-header.scrolled {
+  background-color: theme("colors.surface-container-lowest");
+  border-bottom: 1px solid theme("colors.outline-variant");
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+.scroll-header.scrolled .header-text {
+  color: theme("colors.primary");
+}
+.scroll-header.scrolled .header-icon {
+  color: theme("colors.primary");
+}
