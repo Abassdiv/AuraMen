@@ -16,40 +16,16 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet">
     <link href="FrontEnd/css/style.css" rel="stylesheet">
-    <script src="FrontEnd/js/tailwind-config.js"></script>
+    <link href="FrontEnd/css/layout/auramen-landing-transparent-scroll-header.css" rel="stylesheet">
+    
   </head>
   <body
     class="bg-background text-on-background font-body-md min-h-screen overflow-x-hidden antialiased"
   >
     <!-- Suppressed Top Nav as this is a Splash/Entry page (transactional/linear intent) -->
     <!-- Header (Floating to Solid on Scroll) - Custom for Splash -->
-    <header
-      class="fixed top-0 left-0 right-0 z-[100] transition-all duration-300 scroll-header flex flex-row-reverse justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 bg-transparent border-b border-transparent"
-      id="main-header"
-    >
-      <a
-        class="header-text text-white font-headline-md text-headline-md font-bold tracking-tighter transition-colors duration-300"
-        href="#"
-      >
-        AURA MEN
-      </a>
-      <!-- Minimal utilities for splash -->
-      <div class="flex flex-row-reverse gap-4">
-        <button aria-label="Search" class="header-icon text-white hover:opacity-70 transition-colors duration-300 focus:outline-none">
-          <span class="material-symbols-outlined text-2xl" data-icon="search"
-            >search</span
-          >
-        </button>
-        <button
-          aria-label="Account"
-          class="header-icon text-white hover:opacity-70 transition-colors duration-300 focus:outline-none hidden md:block"
-        >
-          <span class="material-symbols-outlined text-2xl" data-icon="person"
-            >person</span
-          >
-        </button>
-      </div>
-    </header>
+ <header id="header"></header>
+ 
     <main>
       <!-- Hero Section -->
       <section
@@ -348,6 +324,9 @@
         </div>
       </div>
     </footer>
+    <script src="FrontEnd/js/ui/tailwind-config.js"></script>
+    <script src="FrontEnd/js/tailwind-config-landing.js"></script>
     <script src="FrontEnd/js/pages/index.js"></script>
+    <script src="FrontEnd/js/layout/auramen-landing-transparent-scroll-header.js"></script>
   </body>
 </html>

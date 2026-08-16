@@ -1,0 +1,54 @@
+
+ /* Header background/border/shadow crossfade */
+ #siteHeader {
+     transition: background-color .35s ease, border-color .35s ease, box-shadow .35s ease;
+ }
+
+ #siteHeader[data-scrolled="false"] {
+     background-color: transparent;
+     border-bottom-color: transparent;
+     box-shadow: none;
+ }
+
+ #siteHeader[data-scrolled="true"] {
+     background-color: #ffffff;
+     border-bottom-color: #E5E5E5;
+     box-shadow: 0 1px 0 rgba(17, 17, 17, 0.02);
+ }
+
+ /* Logo + icons crossfade between white (on image) and dark (on white bg) */
+ .hdr-ink {
+     transition: color .35s ease;
+     color: #ffffff;
+ }
+
+ #siteHeader[data-scrolled="true"] .hdr-ink {
+     color: #111111;
+ }
+
+ .hdr-icon-btn {
+     transition: background-color .2s ease;
+ }
+
+ #siteHeader[data-scrolled="false"] .hdr-icon-btn:hover {
+     background-color: rgba(255, 255, 255, 0.12);
+ }
+
+ #siteHeader[data-scrolled="true"] .hdr-icon-btn:hover {
+     background-color: #F9F8F6;
+ }
+
+ button:focus-visible,
+ a:focus-visible {
+     outline: 2px solid #C5A059;
+     outline-offset: 2px;
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+
+     #siteHeader,
+     .hdr-ink,
+     .hdr-icon-btn {
+         transition: none !important;
+     }
+ }
