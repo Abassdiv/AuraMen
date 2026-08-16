@@ -1,7 +1,7 @@
 
  /* Header background/border/shadow crossfade */
  #siteHeader {
-     transition: background-color .35s ease, border-color .35s ease, box-shadow .35s ease;
+     transition: background-color 1s ease, border-color 1s ease, box-shadow 1s ease;
  }
 
  #siteHeader[data-scrolled="false"] {
