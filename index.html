@@ -6,6 +6,11 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>AURA MEN | أورا مان</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet">
+
     <link
       href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&amp;family=Inter:wght@400;600&amp;display=swap"
       rel="stylesheet">
@@ -15,17 +20,15 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
       rel="stylesheet">
+    <!-- <script src="FrontEnd/js/tailwind-config-landing.js"></script> -->
     <link href="FrontEnd/css/style.css" rel="stylesheet">
-    <link href="FrontEnd/css/layout/auramen-landing-transparent-scroll-header.css" rel="stylesheet">
-    
   </head>
   <body
     class="bg-background text-on-background font-body-md min-h-screen overflow-x-hidden antialiased"
   >
     <!-- Suppressed Top Nav as this is a Splash/Entry page (transactional/linear intent) -->
     <!-- Header (Floating to Solid on Scroll) - Custom for Splash -->
- <header id="header"></header>
- 
+    <header id="header"></header>
     <main>
       <!-- Hero Section -->
       <section
@@ -243,89 +246,12 @@
       </section>
     </main>
     <!-- Footer from JSON -->
-    <footer
-      class="w-full py-xl px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-lg text-right bg-primary dark:bg-black text-on-primary dark:text-primary-fixed"
-    >
-      <div class="flex flex-col gap-4">
-        <span class="text-headline-lg font-headline-lg text-white"
-          >AURA MEN</span
-        >
-        <p
-          class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim mt-2"
-        >
-          © 2026 أورا مان. جميع الحقوق محفوظة.
-        </p>
-      </div>
-      <div class="flex flex-col gap-4">
-        <h4 class="font-label-caps text-label-caps text-white font-bold mb-2">
-          روابط سريعة
-        </h4>
-        <a
-          class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed"
-          href="#"
-          >عن أورا</a
-        >
-        <a
-          class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed"
-          href="#"
-          >سياسة الخصوصية</a
-        >
-        <a
-          class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed"
-          href="#"
-          >الشروط والأحكام</a
-        >
-        <a
-          class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed"
-          href="#"
-          >اتصل بنا</a
-        >
-      </div>
-      <div class="flex flex-col gap-4 md:col-span-2">
-        <h4 class="font-label-caps text-label-caps text-white font-bold mb-2">
-          النشرة الإخبارية
-        </h4>
-        <p
-          class="font-body-sm text-body-sm text-on-primary-fixed-variant dark:text-secondary-fixed-dim mb-2"
-        >
-          اشترك ليصلك جديد المجموعات والعروض الحصرية.
-        </p>
-        <form class="flex flex-col sm:flex-row gap-2">
-          <input
-            class="bg-surface-container-low text-primary px-4 py-2 rounded-sm border-none focus:ring-1 focus:ring-primary w-full font-body-sm text-body-sm placeholder-on-surface-variant"
-            placeholder="البريد الإلكتروني"
-            type="email"
-          />
-          <button
-            class="bg-white text-primary px-6 py-2 rounded-sm font-label-caps text-label-caps hover:bg-tertiary-fixed transition-colors whitespace-nowrap"
-            type="button"
-          >
-            اشترك
-          </button>
-        </form>
-        <div class="flex gap-4 mt-4">
-          <a
-            aria-label="Instagram"
-            class="text-white hover:text-tertiary-fixed transition-colors"
-            href="#"
-          >
-            <span class="material-symbols-outlined" data-icon="photo_camera"
-              >photo_camera</span
-            >
-          </a>
-          <a
-            aria-label="Twitter"
-            class="text-white hover:text-tertiary-fixed transition-colors"
-            href="#"
-          >
-            <span class="material-symbols-outlined" data-icon="chat">chat</span>
-          </a>
-        </div>
-      </div>
-    </footer>
-    <script src="FrontEnd/js/ui/tailwind-config.js"></script>
-    <script src="FrontEnd/js/tailwind-config-landing.js"></script>
-    <script src="FrontEnd/js/pages/index.js"></script>
+    <footer id="footer-placeholder"></footer>
+
     <script src="FrontEnd/js/layout/auramen-landing-transparent-scroll-header.js"></script>
+    <script src="FrontEnd/js/layout/auramen-footer.js"></script>
+    <script src="FrontEnd/js/pages/index.js"></script>
+    <script src="FrontEnd/js/main.js"></script>
+
   </body>
 </html>
