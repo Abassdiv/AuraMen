@@ -8,7 +8,28 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script>
- 
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          neutral: { 900: '#111111' },
+          sand: { 50: '#F9F8F6' },
+          gold: { 500: '#C5A059' },
+          line: '#E5E5E5',
+          muted: '#737373',
+        },
+        fontFamily: {
+          arabic: ['Tajawal', 'sans-serif'],
+          inter: ['Inter', 'sans-serif'],
+        },
+        borderRadius: {
+          card: '8px',
+          control: '4px',
+          modal: '16px',
+        },
+      },
+    },
+  };
 </script>
 <style>
   body { font-family: 'Tajawal', sans-serif; background:#fff; }

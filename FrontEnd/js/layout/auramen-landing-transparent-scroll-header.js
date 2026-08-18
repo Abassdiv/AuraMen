@@ -1,24 +1,5 @@
-document.addEventListener('DOMContentLoaded', () => {
-  fetch('FrontEnd/components/layout/auramen-landing-transparent-scroll-header.html')
-    .then(response => response.text())
-    .then(html => {
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      const headerContent = doc.querySelector('header').outerHTML;
-
-      const headerContainer = document.getElementById('header');
-      if (headerContainer) {
-        headerContainer.outerHTML = headerContent;
-
-        // Initialize scroll header after header is loaded
-        initScrollHeader();
-      }
-    })
-    .catch(error => console.error('Error loading header:', error));
-});
-
 // VANILLA JS: scroll-based transparent → white transition
-function initScrollHeader() {
+export function initScrollHeader() {
     const header = document.getElementById('siteHeader');
     if (!header) return;
 
