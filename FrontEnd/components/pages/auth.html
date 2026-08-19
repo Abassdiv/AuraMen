@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>تسجيل الدخول - AuraMen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Tajawal:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#1b1c1c",
+                        "surface-container": "#efeded",
+                        "secondary": "#5e5e5d",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#a17f3b",
+                        "surface-variant": "#e3e2e2",
+                        "on-primary-container": "#858383",
+                        "outline-variant": "#c4c7c7",
+                        "inverse-surface": "#303031",
+                        "secondary-fixed": "#e3e2e0",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e3e2e2",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "surface-tint": "#5f5e5e",
+                        "inverse-on-surface": "#f2f0f0",
+                        "inverse-primary": "#c8c6c5",
+                        "on-primary-fixed": "#1c1b1b",
+                        "surface-container-low": "#f5f3f3",
+                        "on-secondary": "#ffffff",
+                        "outline": "#747878",
+                        "tertiary-container": "#261900",
+                        "background": "#fbf9f9",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-dim": "#dbdad9",
+                        "on-secondary-container": "#626361",
+                        "tertiary": "#000000",
+                        "surface-container-high": "#e9e8e7",
+                        "primary": "#000000",
+                        "on-surface": "#1b1c1c",
+                        "primary-container": "#1c1b1b",
+                        "secondary-fixed-dim": "#c7c6c5",
+                        "tertiary-fixed": "#ffdea5",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e5e2e1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed": "#261900",
+                        "surface": "#fbf9f9",
+                        "on-secondary-fixed": "#1a1c1b",
+                        "surface-bright": "#fbf9f9",
+                        "secondary-container": "#e0dfde",
+                        "on-secondary-fixed-variant": "#464746"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "sm": "12px",
+                        "gutter": "16px",
+                        "md": "24px",
+                        "margin-desktop": "64px",
+                        "xl": "80px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Tajawal"],
+                        "headline-lg": ["Tajawal"],
+                        "body-lg": ["Tajawal"],
+                        "headline-md": ["Tajawal"],
+                        "label-caps": ["Inter"],
+                        "headline-xl": ["Tajawal"],
+                        "price-display": ["Inter"],
+                        "body-sm": ["Tajawal"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "0", "fontWeight": "700" }],
+                        "price-display": ["20px", { "lineHeight": "1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .form-view {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .form-view.active {
+            display: block;
+            opacity: 1;
+        }
+        .input-error {
+            border-color: #ba1a1a !important;
+        }
+        .error-message {
+            color: #ba1a1a;
+            font-size: 14px;
+            margin-top: 4px;
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
+<!-- Navbar Suppression: Transactional Screen (Login/Register) -> Navigation Shell Suppressed -->
+<main class="flex-grow flex w-full h-screen">
+<!-- Left Side: Form Container -->
+<div class="w-full md:w-1/2 lg:w-[45%] flex flex-col justify-center items-center px-margin-mobile md:px-margin-desktop bg-surface-container-lowest z-10 h-full overflow-y-auto py-12">
+<div class="w-full max-w-md mx-auto flex flex-col">
+<!-- Logo -->
+<div class="text-center mb-xl">
+<h1 class="font-headline-lg text-headline-lg tracking-tighter text-primary">AURA MEN</h1>
+</div>
+<!-- Tab Switcher -->
+<div class="flex bg-surface-container rounded-full p-1 mb-lg w-full max-w-sm mx-auto">
+<button class="flex-1 py-sm rounded-full text-center text-body-md font-body-md font-bold bg-primary text-on-primary transition-colors duration-200" id="tab-login" onclick="switchTab('login')">
+                        تسجيل الدخول
+                    </button>
+<button class="flex-1 py-sm rounded-full text-center text-body-md font-body-md font-medium text-on-surface-variant hover:text-primary transition-colors duration-200" id="tab-register" onclick="switchTab('register')">
+                        حساب جديد
+                    </button>
+</div>
+<!-- View 1: Login Form -->
+<div class="form-view active w-full" id="view-login">
+<form class="flex flex-col gap-md" id="form-login" onsubmit="validateForm(event, 'login')">
+<div>
+<label class="block text-body-sm font-body-sm text-on-surface-variant mb-xs">البريد الإلكتروني أو رقم الجوال</label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md placeholder:text-outline" id="login-identifier" placeholder="أدخل بريدك الإلكتروني أو رقم جوالك" type="text"/>
+<span class="error-message font-body-sm text-body-sm" id="error-login-identifier">يرجى إدخال البريد الإلكتروني أو رقم الجوال بشكل صحيح.</span>
+</div>
+<div>
+<label class="block text-body-sm font-body-sm text-on-surface-variant mb-xs">كلمة المرور</label>
+<div class="relative">
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md placeholder:text-outline" id="login-password" placeholder="أدخل كلمة المرور" type="password"/>
+<button class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassword('login-password', 'icon-login-pwd')" type="button">
+<span class="material-symbols-outlined" id="icon-login-pwd">visibility_off</span>
+</button>
+</div>
+<span class="error-message font-body-sm text-body-sm" id="error-login-password">يرجى إدخال كلمة المرور.</span>
+</div>
+<div class="flex items-center justify-between mt-sm">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="form-checkbox h-5 w-5 text-primary border-outline-variant rounded-xs focus:ring-0 focus:ring-offset-0 bg-surface-container-lowest" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-primary transition-colors">تذكرني</span>
+</label>
+<a class="font-body-sm text-body-sm text-on-tertiary-container hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">نسيت كلمة المرور؟</a>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-DEFAULT font-body-md text-body-md font-bold hover:bg-inverse-surface transition-colors mt-md" type="submit">
+                            تسجيل الدخول
+                        </button>
+</form>
+<!-- Social Auth -->
+<div class="mt-lg flex flex-col items-center">
+<div class="flex items-center w-full mb-md">
+<hr class="flex-grow border-outline-variant"/>
+<span class="px-4 text-body-sm font-body-sm text-on-surface-variant">أو الدخول عبر</span>
+<hr class="flex-grow border-outline-variant"/>
+</div>
+<div class="flex gap-4 w-full">
+<button class="flex-1 flex justify-center items-center gap-2 py-3 border border-outline-variant rounded-DEFAULT hover:border-primary transition-colors bg-surface-container-lowest">
+<svg class="w-5 h-5" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="font-body-sm text-body-sm font-medium">Google</span>
+</button>
+<button class="flex-1 flex justify-center items-center gap-2 py-3 border border-outline-variant rounded-DEFAULT hover:border-primary transition-colors bg-surface-container-lowest">
+<svg class="w-5 h-5 text-primary" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.17 2.24-.86 3.46-.8 1.45.08 2.65.65 3.41 1.76-2.83 1.68-2.31 5.56.5 6.64-.69 1.77-1.57 3.47-2.45 4.57zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"></path>
+</svg>
+<span class="font-body-sm text-body-sm font-medium">Apple</span>
+</button>
+</div>
+</div>
+</div>
+<!-- View 2: Registration Form -->
+<div class="form-view w-full" id="view-register">
+<form class="flex flex-col gap-md" id="form-register" onsubmit="validateForm(event, 'register')">
+<div>
+<label class="block text-body-sm font-body-sm text-on-surface-variant mb-xs">الاسم الكامل</label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md placeholder:text-outline" id="reg-name" placeholder="أدخل اسمك الكامل" type="text"/>
+<span class="error-message font-body-sm text-body-sm" id="error-reg-name">يرجى إدخال الاسم الكامل.</span>
+</div>
+<div>
+<label class="block text-body-sm font-body-sm text-on-surface-variant mb-xs">البريد الإلكتروني</label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md placeholder:text-outline" id="reg-email" placeholder="أدخل بريدك الإلكتروني" type="email"/>
+<span class="error-message font-body-sm text-body-sm" id="error-reg-email">يرجى إدخال بريد إلكتروني صالح.</span>
+</div>
+<div>
+<label class="block text-body-sm font-body-sm text-on-surface-variant mb-xs">رقم الجوال</label>
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md placeholder:text-outline text-right" dir="ltr" id="reg-phone" placeholder="+966 5X XXX XXXX" type="tel"/>
+<span class="error-message font-body-sm text-body-sm" id="error-reg-phone">يرجى إدخال رقم جوال صحيح.</span>
+</div>
+<div>
+<label class="block text-body-sm font-body-sm text-on-surface-variant mb-xs">كلمة المرور</label>
+<div class="relative">
+<input class="w-full px-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-DEFAULT focus:border-primary focus:ring-0 transition-colors font-body-md text-body-md placeholder:text-outline" id="reg-password" placeholder="إنشاء كلمة مرور قوية" type="password"/>
+<button class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors" onclick="togglePassword('reg-password', 'icon-reg-pwd')" type="button">
+<span class="material-symbols-outlined" id="icon-reg-pwd">visibility_off</span>
+</button>
+</div>
+<span class="error-message font-body-sm text-body-sm" id="error-reg-password">يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل.</span>
+</div>
+<div class="mt-sm">
+<label class="flex items-start gap-3 cursor-pointer group">
+<input class="form-checkbox h-5 w-5 text-primary border-outline-variant rounded-xs focus:ring-0 focus:ring-offset-0 bg-surface-container-lowest mt-1" id="reg-terms" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">أوافق على <a class="text-on-tertiary-container hover:underline" href="#">الشروط والأحكام</a> و <a class="text-on-tertiary-container hover:underline" href="#">سياسة الخصوصية</a> الخاصة بـ AuraMen.</span>
+</label>
+<span class="error-message font-body-sm text-body-sm block mt-2" id="error-reg-terms">يجب الموافقة على الشروط والأحكام.</span>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-DEFAULT font-body-md text-body-md font-bold hover:bg-inverse-surface transition-colors mt-md" type="submit">
+                            إنشاء حسابي
+                        </button>
+</form>
+</div>
+</div>
+</div>
+<!-- Right Side: Visual Editorial (Hidden on Mobile) -->
+<div class="hidden md:flex md:w-1/2 lg:w-[55%] relative overflow-hidden bg-surface-container">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full grayscale-[20%]" data-alt="A striking high-end fashion photography shot of a confident modern man in minimalist premium clothing, positioned in a sophisticated architectural setting with dramatic, moody lighting. The scene uses a refined palette of rich blacks, pristine whites, and subtle earth tones, evoking exclusivity and calm luxury. The image composition leaves ample negative space for text overlay." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBT-ZFeBPXEA015Eu5I7sMOgxZWGAbYKkx5thyI9faWsDJAPwYPpFamg12CnxgZcQlv4RSy_hgE381C-EF462zNrHlqk6LshmCe7xt_xVlGmzhyGbMZZxKll_qyvu0sFE2uHkeWprXOSqAeZPESGT6MvupRtchIq-n3ktGOSTLFLSbCoHQxqbA6HTa3Ju9lVYnQZA2c8HwnbMslexpFj7dvPT1KsTDOV6X4BqjSAOyy933e6XxP5pVU')"></div>
+<!-- Overlay Gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+<div class="absolute inset-0 flex flex-col justify-end p-margin-desktop text-right">
+<h2 class="font-headline-xl text-headline-xl text-white font-bold mb-md leading-tight max-w-lg shadow-sm">انضم إلى عالم AuraMen حيث تلتقي الأناقة بالبساطة</h2>
+<p class="font-body-lg text-body-lg text-secondary-fixed opacity-90 max-w-md">اكتشف مجموعات حصرية وتجربة تسوق مصممة خصيصاً للرجل العصري.</p>
+</div>
+</div>
+</main>
+<script>
+        // Tab Switching Logic
+        function switchTab(tabName) {
+            const loginView = document.getElementById('view-login');
+            const registerView = document.getElementById('view-register');
+            const loginTab = document.getElementById('tab-login');
+            const registerTab = document.getElementById('tab-register');
+
+            // Reset errors on switch
+            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('input').forEach(el => el.classList.remove('input-error'));
+
+            if (tabName === 'login') {
+                registerView.classList.remove('active');
+                setTimeout(() => {
+                    loginView.classList.add('active');
+                }, 150); // slight delay for fade effect
+
+                loginTab.className = "flex-1 py-sm rounded-full text-center text-body-md font-body-md font-bold bg-primary text-on-primary transition-colors duration-200";
+                registerTab.className = "flex-1 py-sm rounded-full text-center text-body-md font-body-md font-medium text-on-surface-variant hover:text-primary transition-colors duration-200";
+            } else {
+                loginView.classList.remove('active');
+                setTimeout(() => {
+                    registerView.classList.add('active');
+                }, 150);
+
+                registerTab.className = "flex-1 py-sm rounded-full text-center text-body-md font-body-md font-bold bg-primary text-on-primary transition-colors duration-200";
+                loginTab.className = "flex-1 py-sm rounded-full text-center text-body-md font-body-md font-medium text-on-surface-variant hover:text-primary transition-colors duration-200";
+            }
+        }
+
+        // Password Visibility Toggle
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            
+            if (input.type === "password") {
+                input.type = "text";
+                icon.textContent = "visibility";
+            } else {
+                input.type = "password";
+                icon.textContent = "visibility_off";
+            }
+        }
+
+        // Basic Form Validation
+        function validateForm(e, formType) {
+            e.preventDefault();
+            let isValid = true;
+
+            // Reset previous errors
+            document.querySelectorAll(`#form-${formType} .error-message`).forEach(el => el.style.display = 'none');
+            document.querySelectorAll(`#form-${formType} input`).forEach(el => el.classList.remove('input-error'));
+
+            if (formType === 'login') {
+                const identifier = document.getElementById('login-identifier');
+                const password = document.getElementById('login-password');
+
+                if (!identifier.value.trim()) {
+                    showError(identifier, 'error-login-identifier');
+                    isValid = false;
+                }
+                if (!password.value.trim()) {
+                    showError(password, 'error-login-password');
+                    isValid = false;
+                }
+            } else if (formType === 'register') {
+                const name = document.getElementById('reg-name');
+                const email = document.getElementById('reg-email');
+                const phone = document.getElementById('reg-phone');
+                const password = document.getElementById('reg-password');
+                const terms = document.getElementById('reg-terms');
+
+                if (!name.value.trim()) {
+                    showError(name, 'error-reg-name');
+                    isValid = false;
+                }
+                if (!email.value.trim() || !email.value.includes('@')) {
+                    showError(email, 'error-reg-email');
+                    isValid = false;
+                }
+                if (!phone.value.trim()) {
+                    showError(phone, 'error-reg-phone');
+                    isValid = false;
+                }
+                if (password.value.length < 8) {
+                    showError(password, 'error-reg-password');
+                    isValid = false;
+                }
+                if (!terms.checked) {
+                    document.getElementById('error-reg-terms').style.display = 'block';
+                    isValid = false;
+                }
+            }
+
+            if (isValid) {
+                // Simulate form submission success
+                const btn = e.target.querySelector('button[type="submit"]');
+                const originalText = btn.textContent;
+                btn.textContent = "جاري التحميل...";
+                btn.style.opacity = "0.7";
+                
+                setTimeout(() => {
+                    alert('تمت العملية بنجاح! سيتم توجيهك الآن.');
+                    btn.textContent = originalText;
+                    btn.style.opacity = "1";
+                }, 1500);
+            }
+        }
+
+        function showError(inputElement, errorId) {
+            inputElement.classList.add('input-error');
+            document.getElementById(errorId).style.display = 'block';
+        }
+    </script>
+</body></html>

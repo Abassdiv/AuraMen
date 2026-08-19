@@ -12,7 +12,6 @@ export function initScrollHeader() {
         header.setAttribute('data-scrolled', String(scrolled));
       }
     }
-
     window.addEventListener('scroll', updateHeaderState, { passive: true });
     updateHeaderState(); // set correct state on load (e.g. if page is reloaded mid-scroll)
 }
