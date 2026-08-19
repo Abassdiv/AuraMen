@@ -1,0 +1,21 @@
+ .form-view {
+     display: none;
+     opacity: 0;
+     transition: opacity 0.3s ease-in-out;
+ }
+
+ .form-view.active {
+     display: block;
+     opacity: 1;
+ }
+
+ .input-error {
+     border-color: #ba1a1a !important;
+ }
+
+ .error-message {
+     color: #ba1a1a;
+     font-size: 14px;
+     margin-top: 4px;
+     display: none;
+ }
