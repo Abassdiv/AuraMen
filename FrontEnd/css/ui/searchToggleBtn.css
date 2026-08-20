@@ -1,0 +1,16 @@
+ #searchModal.active #searchBackdrop {
+     opacity: 1;
+ }
+
+ #searchModal.active #searchModalContent {
+     transform: scale(1);
+     opacity: 1;
+ }
+
+ #searchModal:not(.active) #searchBackdrop {
+     pointer-events: none;
+ }
+
+ #searchModal:not(.active) #searchModalContent {
+     pointer-events: none;
+ }

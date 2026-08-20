@@ -1,6 +1,8 @@
 import { initScrollHeader } from './layout/auramen-landing-transparent-scroll-header.js';
 import { initFooterAccordion } from './layout/auramen-footer.js';
+import { initSearchModal } from './ui/searchToggleBtn.js';
 import './pages/index.js';
+
 // Load external HTML components using fetch
 document.addEventListener('DOMContentLoaded', () => {
   // Load header
@@ -16,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
         headerContainer.outerHTML = headerContent;
         // Initialize scroll header after header is loaded
         initScrollHeader();
+        // Initialize search modal after header is loaded
+        initSearchModal();
       }
     })
     .catch(error => console.error('Error loading header:', error));
