@@ -1,0 +1,37 @@
+  /* Custom styling to reinforce flat aesthetic */
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #fbf9f9; 
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #e3e2e2; 
+    }
+    .quick-add-overlay {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .product-card:hover .quick-add-overlay {
+      opacity: 1;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      background: #000000;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 16px;
+      height: 16px;
+      background: #000000;
+      cursor: pointer;
+      border-radius: 50%;
+    }

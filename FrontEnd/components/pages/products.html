@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aura Men - قمصان رجالية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../../js/tailwind-config.js"></script>
+<link rel="stylesheet" href="../../css/pages/products.css">
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface border-b border-outline-variant docked full-width top-0 sticky flex flex-row-reverse justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 z-50">
+<div class="flex items-center gap-6">
+<div class="text-headline-md font-headline-md font-bold tracking-tighter text-primary">AURA MEN</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex flex-row-reverse items-center gap-lg">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">المجموعات</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">الإكسسوارات</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">العروض</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">favorite</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">shopping_bag</span>
+<!-- Mobile menu trigger (hidden on md) -->
+<span class="material-symbols-outlined text-primary cursor-pointer md:hidden hover:opacity-70 transition-opacity" id="mobile-menu-btn">menu</span>
+</div>
+</header>
+<!-- SideNavBar (Mobile) - Hidden by default -->
+<div class="fixed inset-y-0 right-0 z-[60] flex flex-col p-6 bg-surface shadow-xl docked full-height right-0 w-80 transform translate-x-full transition-transform duration-300 md:hidden" id="mobile-nav">
+<div class="flex justify-between items-center mb-8">
+<div class="text-headline-md font-headline-md text-primary">AURA MEN</div>
+<span class="material-symbols-outlined cursor-pointer" id="close-menu-btn">close</span>
+</div>
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+</div>
+<div>
+<div class="font-bold">أهلاً بك</div>
+<div class="text-body-sm text-on-surface-variant">عميل أورا المميز</div>
+</div>
+</div>
+<nav class="flex flex-col gap-2">
+<a class="flex flex-row-reverse items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="text-body-md font-body-md">الرئيسية</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-4 bg-secondary-container text-primary rounded-lg px-4 py-3" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-body-md font-body-md">المتجر</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="text-body-md font-body-md">المفضلة</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-body-md font-body-md">حسابي</span>
+</a>
+<a class="flex flex-row-reverse items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-body-md font-body-md">الإعدادات</span>
+</a>
+</nav>
+</div>
+<div class="fixed inset-0 bg-primary/70 z-[55] hidden transition-opacity" id="mobile-nav-overlay"></div>
+<main class="flex-grow">
+<!-- Breadcrumbs & Header Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-md">
+<nav aria-label="Breadcrumb" class="text-body-sm text-on-surface-variant mb-4">
+<ol class="flex items-center space-x-2 space-x-reverse">
+<li><a class="hover:text-primary transition-colors" href="#">الرئيسية</a></li>
+<li><span class="mx-2">/</span></li>
+<li><a class="hover:text-primary transition-colors" href="#">ملابس رجالية</a></li>
+<li><span class="mx-2">/</span></li>
+<li aria-current="page" class="text-primary font-medium">قمصان كاجوال</li>
+</ol>
+</nav>
+<div class="flex flex-col md:flex-row-reverse justify-between items-start md:items-center gap-4 border-b border-surface-variant pb-md">
+<div>
+<h1 class="text-headline-xl font-headline-xl text-primary">قمصان رجالية</h1>
+<p class="text-body-md text-on-surface-variant mt-2">عرض <span class="font-price-display font-semibold">24</span> منتج</p>
+</div>
+<div class="flex items-center gap-4 w-full md:w-auto">
+<!-- Mobile Filter Toggle -->
+<button class="md:hidden flex items-center justify-center gap-2 border border-outline-variant rounded px-4 py-2 w-full">
+<span class="material-symbols-outlined">tune</span>
+<span>تصفية</span>
+</button>
+<!-- Sort Dropdown -->
+<div class="relative w-full md:w-48">
+<select class="block w-full pl-3 pr-10 py-2 text-body-md border border-outline-variant bg-surface rounded appearance-none focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
+<option>الأحدث</option>
+<option>الأعلى سعراً</option>
+<option>الأقل سعراً</option>
+</select>
+<div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-on-surface-variant">
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Layout -->
+<section class="px-margin-mobile md:px-margin-desktop pb-xl flex flex-col md:flex-row-reverse gap-lg">
+<!-- Desktop Sidebar Filter (280px) -->
+<aside class="hidden md:block w-[280px] shrink-0 custom-scrollbar pr-4">
+<!-- Category Filter -->
+<div class="mb-8 border-b border-surface-variant pb-6">
+<h3 class="text-body-lg font-bold mb-4">الفئة</h3>
+<div class="flex flex-col gap-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="form-checkbox h-5 w-5 text-primary border-outline-variant rounded-sm focus:ring-primary focus:ring-offset-surface" type="checkbox"/>
+<span class="text-body-md group-hover:text-primary transition-colors">قمصان قطنية</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="form-checkbox h-5 w-5 text-primary border-outline-variant rounded-sm focus:ring-primary focus:ring-offset-surface" type="checkbox"/>
+<span class="text-body-md group-hover:text-primary transition-colors">قمصان كتان</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="form-checkbox h-5 w-5 text-primary border-outline-variant rounded-sm focus:ring-primary focus:ring-offset-surface" type="checkbox"/>
+<span class="text-body-md group-hover:text-primary transition-colors">قمصان رسمية</span>
+</label>
+</div>
+</div>
+<!-- Price Range Filter -->
+<div class="mb-8 border-b border-surface-variant pb-6">
+<h3 class="text-body-lg font-bold mb-4">السعر</h3>
+<div class="px-2">
+<input class="w-full h-1 bg-surface-variant rounded-lg appearance-none cursor-pointer" max="1000" min="0" type="range" value="500"/>
+<div class="flex justify-between items-center mt-4">
+<span class="font-price-display text-body-sm">0 ر.س</span>
+<span class="font-price-display text-body-sm font-semibold">500 ر.س</span>
+</div>
+</div>
+</div>
+<!-- Color Filter -->
+<div class="mb-8 border-b border-surface-variant pb-6">
+<h3 class="text-body-lg font-bold mb-4">اللون</h3>
+<div class="flex flex-wrap gap-3">
+<button aria-label="أسود" class="w-8 h-8 rounded-full border border-outline-variant bg-[#000000] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"></button>
+<button aria-label="أبيض" class="w-8 h-8 rounded-full border border-outline-variant bg-[#FFFFFF] flex items-center justify-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+<span class="material-symbols-outlined text-[16px] text-primary">check</span>
+</button>
+<button aria-label="كحلي" class="w-8 h-8 rounded-full border border-outline-variant bg-[#000080] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"></button>
+<button aria-label="زيتي" class="w-8 h-8 rounded-full border border-outline-variant bg-[#556B2F] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"></button>
+</div>
+</div>
+<!-- Size Filter -->
+<div class="mb-8">
+<h3 class="text-body-lg font-bold mb-4">المقاس</h3>
+<div class="flex flex-wrap gap-2">
+<button class="w-10 h-10 border border-outline-variant rounded-sm text-body-md hover:border-primary transition-colors">S</button>
+<button class="w-10 h-10 border border-outline-variant rounded-sm text-body-md hover:border-primary transition-colors">M</button>
+<button class="w-10 h-10 border border-primary bg-primary text-white rounded-sm text-body-md transition-colors">L</button>
+<button class="w-10 h-10 border border-outline-variant rounded-sm text-body-md hover:border-primary transition-colors">XL</button>
+<button class="w-10 h-10 border border-outline-variant rounded-sm text-body-md hover:border-primary transition-colors">XXL</button>
+</div>
+</div>
+</aside>
+<!-- Product Canvas -->
+<div class="flex-grow">
+<!-- Active Filters -->
+<div class="flex flex-wrap items-center gap-2 mb-6">
+<div class="flex items-center gap-2 bg-surface-container-high px-3 py-1.5 rounded-full border border-surface-variant">
+<span class="text-body-sm">أبيض</span>
+<span class="material-symbols-outlined text-[16px] cursor-pointer text-on-surface-variant hover:text-primary">close</span>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-high px-3 py-1.5 rounded-full border border-surface-variant">
+<span class="text-body-sm font-price-display">L</span>
+<span class="material-symbols-outlined text-[16px] cursor-pointer text-on-surface-variant hover:text-primary">close</span>
+</div>
+<button class="text-body-sm text-on-surface-variant underline hover:text-primary mr-4">مسح الكل</button>
+</div>
+<!-- Product Grid (3 Columns) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Product Card 1 -->
+<div class="product-card group relative flex flex-col bg-surface border border-outline-variant rounded-lg overflow-hidden transition-all duration-300">
+<div class="relative aspect-[3/4] bg-surface-container-low overflow-hidden">
+<div class="bg-cover bg-center w-full h-full" data-alt="A male model wearing a crisp, minimalist white cotton button-down shirt in a bright, modern studio setting. The lighting is soft and even, highlighting the clean lines and premium fabric texture of the garment. The background is a stark, pure white to emphasize the minimalist editorial aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCtJlQ2Vd9-nkoMLKOqLcYDCpiBy0KSB-ORfth1RJdBPAVrAcl4wKpawxRf2BFefujFUwJ21zwNne4IY5yULSIp38vQsIOoqSKqIeipIzvis8q5GrjL-Ad2KCu1A-Q9SWEQrZMgtmKAOK_nwgaHPVV5FnfwmxqVQ8NbNfYO4WqeqrjxL4B0_oOKTCJrGYoatLbhZSCYJ9BkcNhbI0f4mAfN02uLsqcuq3ZVT-v_YOSmmRuaKFYyOFaf')"></div>
+<!-- Quick Add Overlay -->
+<div class="quick-add-overlay absolute inset-x-0 bottom-0 bg-primary/90 p-4 flex flex-col items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+<span class="text-white text-body-sm mb-2">اختر المقاس:</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">S</button>
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">M</button>
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">L</button>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<h3 class="text-body-lg font-medium text-primary">قميص كلاسيكي قطن</h3>
+<p class="text-body-sm text-on-surface-variant mt-1">أبيض</p>
+</div>
+<div class="mt-4 flex justify-between items-end">
+<span class="font-price-display text-price-display text-primary">249 ر.س</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">favorite_border</button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="product-card group relative flex flex-col bg-surface border border-outline-variant rounded-lg overflow-hidden transition-all duration-300">
+<div class="relative aspect-[3/4] bg-surface-container-low overflow-hidden">
+<div class="bg-cover bg-center w-full h-full" data-alt="A male model posing in a relaxed fit, black linen shirt against a muted, light grey architectural background. The styling is contemporary and understated, with natural daylight casting subtle shadows that emphasize the relaxed drape and breathability of the fabric." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAN97PQMZCd_pH_pRZ5WlEWWB8shuESCv7-gvmEUlu9cgmKgkoU3f5xt9N2Hy-QbdeNfU4DF9J6y1Gt8c7qnMubQ-OvM328uI-fYjypmHfJASn1ZXSVo9ymc8zkSI7gSdg96GjfeB0UoSWOD_KvKQnilnwHnaDtUWI2-lvkU7DgoWq266NtamKB8Gi5BD90G2N1sOoLulBa_1pXtEqWnR5bmocRFwnm4BqFkeqGBHJPs75zGcCMmNfz')"></div>
+<div class="absolute top-2 right-2 bg-primary text-white text-label-caps px-2 py-1 rounded-sm">جديد</div>
+<!-- Quick Add Overlay -->
+<div class="quick-add-overlay absolute inset-x-0 bottom-0 bg-primary/90 p-4 flex flex-col items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+<span class="text-white text-body-sm mb-2">اختر المقاس:</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">S</button>
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">M</button>
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">L</button>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<h3 class="text-body-lg font-medium text-primary">قميص كتان مريح</h3>
+<p class="text-body-sm text-on-surface-variant mt-1">أسود</p>
+</div>
+<div class="mt-4 flex justify-between items-end">
+<span class="font-price-display text-price-display text-primary">299 ر.س</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">favorite_border</button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="product-card group relative flex flex-col bg-surface border border-outline-variant rounded-lg overflow-hidden transition-all duration-300">
+<div class="relative aspect-[3/4] bg-surface-container-low overflow-hidden">
+<div class="bg-cover bg-center w-full h-full" data-alt="Close up shot of a high-quality navy blue dress shirt neatly folded on a minimalist display table. The lighting is dramatic but clean, highlighting the sharp collar and precise stitching. The background is a soft, out-of-focus neutral tone to keep all focus on the garment's craftsmanship." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3DIl87_Wor1vd1hyAof2XPuElaDRcxANBv1F29_k5RsrqUlTiB8XspOcIy-ciL8Q-5VBYxgugzFFju-ybTEHk8ybqSMPHV7-PJbo-_Irda335n1Ghe8AHrUTzOoEq9tsbmTHigOEwMiltPOeBSS8jVdVdDr6oH1025RAEMZypvEQiDaQzY0ys7pBSnvZcC1Cs-_d37fy2-wyIPMscDq__-UX8eis-qJySYQYN8aamdYZ9KoVJh5zt')"></div>
+<!-- Quick Add Overlay -->
+<div class="quick-add-overlay absolute inset-x-0 bottom-0 bg-primary/90 p-4 flex flex-col items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+<span class="text-white text-body-sm mb-2">اختر المقاس:</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">M</button>
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">L</button>
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">XL</button>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<h3 class="text-body-lg font-medium text-primary">قميص رسمي أكسفورد</h3>
+<p class="text-body-sm text-on-surface-variant mt-1">كحلي</p>
+</div>
+<div class="mt-4 flex justify-between items-end">
+<span class="font-price-display text-price-display text-primary">349 ر.س</span>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">favorite_border</button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="product-card group relative flex flex-col bg-surface border border-outline-variant rounded-lg overflow-hidden transition-all duration-300">
+<div class="relative aspect-[3/4] bg-surface-container-low overflow-hidden">
+<div class="bg-cover bg-center w-full h-full" data-alt="A male model wearing an olive green casual overshirt paired with a simple white t-shirt underneath. The setting is a minimalist, naturally lit indoor space with subtle concrete textures. The mood is relaxed, contemporary, and distinctly masculine." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBijsAEGAlt__k0-xlYePt4IAHxKm2la87U5_zjofoR_HcooQ2Zeanpc52Din-MZImJPwcQFPsCUBPR9MwH7hBUixR67ZL5Wg9S2wsctCtZ6Q0Xe52MpSC8D96MBuylyD3TDAEBJhymOB6BbdWeSb3c_LKDxNntrJqikSIWFduNGADh7N1B0G4U3nPp8dkFAY1Sm1liASD5x2WvOBJQ-jO9RuTJLk43z_2C7IsKClLACqO9JnJMpE77')"></div>
+<!-- Quick Add Overlay -->
+<div class="quick-add-overlay absolute inset-x-0 bottom-0 bg-primary/90 p-4 flex flex-col items-center justify-center translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+<span class="text-white text-body-sm mb-2">اختر المقاس:</span>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">S</button>
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">L</button>
+<button class="w-8 h-8 rounded-sm bg-white text-primary text-xs font-semibold hover:bg-tertiary-fixed transition-colors">XXL</button>
+</div>
+</div>
+</div>
+<div class="p-4 flex flex-col justify-between flex-grow">
+<div>
+<h3 class="text-body-lg font-medium text-primary">قميص كاجوال ثقيل</h3>
+<p class="text-body-sm text-on-surface-variant mt-1">زيتي</p>
+</div>
+<div class="mt-4 flex justify-between items-end">
+<span class="font-price-display text-price-display text-primary">279 ر.س</span>
+<button class="material-symbols-outlined text-primary hover:text-primary/70 transition-colors" style="font-variation-settings: 'FILL' 1;">favorite</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination (Placeholder) -->
+<div class="flex justify-center items-center gap-2 mt-xl">
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center border border-primary bg-primary text-white rounded font-price-display">1</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-high transition-colors font-price-display">2</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-high transition-colors font-price-display">3</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant rounded hover:bg-surface-container-high transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-primary w-full py-xl px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-lg text-right full-width">
+<div class="col-span-1 md:col-span-2 flex flex-col gap-4">
+<div class="text-headline-lg font-headline-lg text-white">AURA MEN</div>
+<p class="text-on-primary-fixed-variant text-body-sm max-w-sm leading-relaxed">
+        وجهتك الأولى للأزياء الرجالية العصرية. نقدم لك مجموعة مختارة بعناية من أفضل التصاميم التي تجمع بين الأناقة والجودة العالية لتناسب أسلوب حياتك.
+      </p>
+</div>
+<div class="col-span-1 flex flex-col gap-4">
+<h4 class="text-white text-label-caps font-label-caps mb-2">روابط سريعة</h4>
+<a class="text-on-primary-fixed-variant text-body-sm hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">عن أورا</a>
+<a class="text-on-primary-fixed-variant text-body-sm hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">سياسة الخصوصية</a>
+<a class="text-on-primary-fixed-variant text-body-sm hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">الشروط والأحكام</a>
+<a class="text-on-primary-fixed-variant text-body-sm hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">اتصل بنا</a>
+</div>
+<div class="col-span-1 flex flex-col justify-end mt-8 md:mt-0">
+<p class="text-on-primary-fixed-variant text-label-caps font-label-caps">© 2024 أورا مان. جميع الحقوق محفوظة.</p>
+</div>
+</footer>
+<script>
+    // Simple mobile menu toggle logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const closeBtn = document.getElementById('close-menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      const overlay = document.getElementById('mobile-nav-overlay');
+
+      function toggleMenu() {
+        const isClosed = mobileNav.classList.contains('translate-x-full');
+        if (isClosed) {
+          mobileNav.classList.remove('translate-x-full');
+          overlay.classList.remove('hidden');
+        } else {
+          mobileNav.classList.add('translate-x-full');
+          overlay.classList.add('hidden');
+        }
+      }
+
+      mobileBtn.addEventListener('click', toggleMenu);
+      closeBtn.addEventListener('click', toggleMenu);
+      overlay.addEventListener('click', toggleMenu);
+    });
+  </script>
+</body></html>
