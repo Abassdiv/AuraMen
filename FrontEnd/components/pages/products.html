@@ -14,45 +14,6 @@
 <body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
 <!-- TopNavBar (Shared Component) -->
 <header id="header_placeholder"></header>
-<!-- SideNavBar (Mobile) - Hidden by default -->
-<div class="fixed inset-y-0 right-0 z-[60] flex flex-col p-6 bg-surface shadow-xl docked full-height right-0 w-80 transform translate-x-full transition-transform duration-300 md:hidden" id="mobile-nav">
-<div class="flex justify-between items-center mb-8">
-<div class="text-headline-md font-headline-md text-primary">AURA MEN</div>
-<span class="material-symbols-outlined cursor-pointer" id="close-menu-btn">close</span>
-</div>
-<div class="flex items-center gap-4 mb-8">
-<div class="w-12 h-12 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden">
-<span class="material-symbols-outlined text-on-surface-variant">person</span>
-</div>
-<div>
-<div class="font-bold">أهلاً بك</div>
-<div class="text-body-sm text-on-surface-variant">عميل أورا المميز</div>
-</div>
-</div>
-<nav class="flex flex-col gap-2">
-<a class="flex flex-row-reverse items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all rounded-lg" href="#">
-<span class="material-symbols-outlined">home</span>
-<span class="text-body-md font-body-md">الرئيسية</span>
-</a>
-<a class="flex flex-row-reverse items-center gap-4 bg-secondary-container text-primary rounded-lg px-4 py-3" href="#">
-<span class="material-symbols-outlined">storefront</span>
-<span class="text-body-md font-body-md">المتجر</span>
-</a>
-<a class="flex flex-row-reverse items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all rounded-lg" href="#">
-<span class="material-symbols-outlined">favorite</span>
-<span class="text-body-md font-body-md">المفضلة</span>
-</a>
-<a class="flex flex-row-reverse items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all rounded-lg" href="#">
-<span class="material-symbols-outlined">person</span>
-<span class="text-body-md font-body-md">حسابي</span>
-</a>
-<a class="flex flex-row-reverse items-center gap-4 text-on-surface-variant px-4 py-3 hover:bg-surface-container-high transition-all rounded-lg" href="#">
-<span class="material-symbols-outlined">settings</span>
-<span class="text-body-md font-body-md">الإعدادات</span>
-</a>
-</nav>
-</div>
-<div class="fixed inset-0 bg-primary/70 z-[55] hidden transition-opacity" id="mobile-nav-overlay"></div>
 <main class="flex-grow">
 <!-- Breadcrumbs & Header Section -->
 <section class="px-margin-mobile md:px-margin-desktop py-md">

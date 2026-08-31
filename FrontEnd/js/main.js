@@ -7,7 +7,7 @@ import './pages/index.js';
 // Load external HTML components using fetch
 document.addEventListener('DOMContentLoaded', () => {
   // Load header
-  fetch('../layout/auramen-landing-transparent-scroll-header.html')
+  fetch('/FrontEnd/components/layout/auramen-landing-transparent-scroll-header.html')
     .then(response => response.text())
     .then(html => {
       const parser = new DOMParser();
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => console.error('Error loading header:', error));
 
   // Load footer
-  fetch('../layout/auramen-footer.html')
+  fetch('/FrontEnd/components/layout/auramen-footer.html')
     .then(response => response.text())
     .then(html => {
       const parser = new DOMParser();
@@ -43,16 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => console.error('Error loading footer:', error));
 
   // Load auramen header
-  fetch('../layout/auramen-header.html')
+  fetch('/FrontEnd/components/layout/auramen-header.html')
     .then(response => response.text())
     .then(html => {
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, 'text/html');
-      const headerContent = doc.querySelector('header').outerHTML;
+      const bodyContent = doc.body.innerHTML;
 
       const headerContainer = document.getElementById('header_placeholder');
       if (headerContainer) {
-        headerContainer.outerHTML = headerContent;
+        headerContainer.outerHTML = bodyContent;
         initAuramenHeader();
       }
     })
