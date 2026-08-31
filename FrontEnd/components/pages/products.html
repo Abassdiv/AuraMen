@@ -9,27 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script src="../../js/tailwind-config.js"></script>
-<link rel="stylesheet" href="../../css/pages/products.css">
+<link rel="stylesheet" href="../../css/style.css">
 </head>
 <body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col">
 <!-- TopNavBar (Shared Component) -->
-<header class="bg-surface border-b border-outline-variant docked full-width top-0 sticky flex flex-row-reverse justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16 z-50">
-<div class="flex items-center gap-6">
-<div class="text-headline-md font-headline-md font-bold tracking-tighter text-primary">AURA MEN</div>
-<!-- Desktop Nav -->
-<nav class="hidden md:flex flex-row-reverse items-center gap-lg">
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">المجموعات</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">الإكسسوارات</a>
-<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">العروض</a>
-</nav>
-</div>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">favorite</span>
-<span class="material-symbols-outlined text-primary cursor-pointer hover:opacity-70 transition-opacity">shopping_bag</span>
-<!-- Mobile menu trigger (hidden on md) -->
-<span class="material-symbols-outlined text-primary cursor-pointer md:hidden hover:opacity-70 transition-opacity" id="mobile-menu-btn">menu</span>
-</div>
-</header>
+<header id="header_placeholder"></header>
 <!-- SideNavBar (Mobile) - Hidden by default -->
 <div class="fixed inset-y-0 right-0 z-[60] flex flex-col p-6 bg-surface shadow-xl docked full-height right-0 w-80 transform translate-x-full transition-transform duration-300 md:hidden" id="mobile-nav">
 <div class="flex justify-between items-center mb-8">
@@ -297,23 +281,6 @@
 </section>
 </main>
 <!-- Footer (Shared Component) -->
-<footer class="bg-primary w-full py-xl px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-lg text-right full-width">
-<div class="col-span-1 md:col-span-2 flex flex-col gap-4">
-<div class="text-headline-lg font-headline-lg text-white">AURA MEN</div>
-<p class="text-on-primary-fixed-variant text-body-sm max-w-sm leading-relaxed">
-        وجهتك الأولى للأزياء الرجالية العصرية. نقدم لك مجموعة مختارة بعناية من أفضل التصاميم التي تجمع بين الأناقة والجودة العالية لتناسب أسلوب حياتك.
-      </p>
-</div>
-<div class="col-span-1 flex flex-col gap-4">
-<h4 class="text-white text-label-caps font-label-caps mb-2">روابط سريعة</h4>
-<a class="text-on-primary-fixed-variant text-body-sm hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">عن أورا</a>
-<a class="text-on-primary-fixed-variant text-body-sm hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">سياسة الخصوصية</a>
-<a class="text-on-primary-fixed-variant text-body-sm hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">الشروط والأحكام</a>
-<a class="text-on-primary-fixed-variant text-body-sm hover:text-tertiary-fixed transition-colors focus:outline-none focus:text-tertiary-fixed" href="#">اتصل بنا</a>
-</div>
-<div class="col-span-1 flex flex-col justify-end mt-8 md:mt-0">
-<p class="text-on-primary-fixed-variant text-label-caps font-label-caps">© 2024 أورا مان. جميع الحقوق محفوظة.</p>
-</div>
-</footer>
+<footer id="footer_placeholder"></footer>
 <script src="../../js/pages/products.js"></script>
 </body></html>

@@ -1,0 +1,55 @@
+.num {
+    font-family: 'Inter', sans-serif;
+    direction: ltr;
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Nav link gold underline — grows from center, signature micro-interaction */
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    right: 50%;
+    left: 50%;
+    bottom: 0;
+    height: 1.5px;
+    background: #C5A059;
+    transition: right .28s cubic-bezier(.4, 0, .2, 1), left .28s cubic-bezier(.4, 0, .2, 1);
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+    right: 0;
+    left: 0;
+}
+
+/* Drawer + overlay transitions */
+#drawer {
+    transition: transform .35s cubic-bezier(.4, 0, .2, 1);
+}
+
+#overlay {
+    transition: opacity .3s ease;
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid #C5A059;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    #drawer,
+    #overlay,
+    .nav-link::after {
+        transition: none !important;
+    }
+}

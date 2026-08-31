@@ -2,6 +2,8 @@ import { initScrollHeader } from './layout/auramen-landing-transparent-scroll-he
 import { initFooterAccordion } from './layout/auramen-footer.js';
 import { initSearchModal } from './ui/searchToggleBtn.js';
 import './pages/index.js';
+import './layout/auramen-header.js';
+import '../css/layout/auramen-header.css';
 
 // Load external HTML components using fetch
 document.addEventListener('DOMContentLoaded', () => {
@@ -40,4 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
     .catch(error => console.error('Error loading footer:', error));
+
+  // Load auramen header
+  fetch('FrontEnd/components/layout/auramen-header.html')
+    .then(response => response.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const headerContent = doc.querySelector('header').outerHTML;
+
+      const headerContainer = document.getElementById('header_placeholder');
+      if (headerContainer) {
+        headerContainer.outerHTML = headerContent;
+      }
+    })
+    .catch(error => console.error('Error loading auramen header:', error));
 });
