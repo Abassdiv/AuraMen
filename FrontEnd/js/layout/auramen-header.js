@@ -1,8 +1,12 @@
-(function () {
+export function initAuramenHeader() {
     const openBtn = document.getElementById('openDrawerBtn');
     const closeBtn = document.getElementById('closeDrawerBtn');
     const drawer = document.getElementById('drawer');
     const overlay = document.getElementById('overlay');
+
+    if (!openBtn || !closeBtn || !drawer || !overlay) {
+      return;
+    }
 
     function openDrawer() {
       drawer.classList.remove('translate-x-full');
@@ -33,4 +37,4 @@
         closeDrawer();
       }
     });
-  })();
+}

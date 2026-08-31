@@ -1,14 +1,13 @@
 import { initScrollHeader } from './layout/auramen-landing-transparent-scroll-header.js';
 import { initFooterAccordion } from './layout/auramen-footer.js';
 import { initSearchModal } from './ui/searchToggleBtn.js';
+import { initAuramenHeader } from './layout/auramen-header.js';
 import './pages/index.js';
-import './layout/auramen-header.js';
-import '../css/layout/auramen-header.css';
 
 // Load external HTML components using fetch
 document.addEventListener('DOMContentLoaded', () => {
   // Load header
-  fetch('FrontEnd/components/layout/auramen-landing-transparent-scroll-header.html')
+  fetch('../layout/auramen-landing-transparent-scroll-header.html')
     .then(response => response.text())
     .then(html => {
       const parser = new DOMParser();
@@ -27,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => console.error('Error loading header:', error));
 
   // Load footer
-  fetch('FrontEnd/components/layout/auramen-footer.html')
+  fetch('../layout/auramen-footer.html')
     .then(response => response.text())
     .then(html => {
       const parser = new DOMParser();
@@ -44,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => console.error('Error loading footer:', error));
 
   // Load auramen header
-  fetch('FrontEnd/components/layout/auramen-header.html')
+  fetch('../layout/auramen-header.html')
     .then(response => response.text())
     .then(html => {
       const parser = new DOMParser();
@@ -54,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const headerContainer = document.getElementById('header_placeholder');
       if (headerContainer) {
         headerContainer.outerHTML = headerContent;
+        initAuramenHeader();
       }
     })
     .catch(error => console.error('Error loading auramen header:', error));
