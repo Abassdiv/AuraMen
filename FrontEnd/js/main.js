@@ -14,8 +14,29 @@ if (isGitHubPages) {
   basePath = '/FrontEnd/';
 }
 
+// Load general header using async/await
+async function loadHeader() {
+  try {
+    const response = await fetch(basePath + "components/layout/auramen-general-header.html");
+    const html = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const headerContent = doc.querySelector("header").outerHTML;
+
+    const headerContainer = document.getElementById("general_header");
+    if (headerContainer) {
+      headerContainer.outerHTML = headerContent;
+    }
+  } catch (error) {
+    console.error("Error loading general header:", error);
+  }
+}
+
 // Load external HTML components using fetch
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  // Load general header first to avoid null errors
+  await loadHeader();
+
   // Load header
   fetch(basePath + "components/layout/auramen-landing-transparent-scroll-header.html")
     .then((response) => response.text())
