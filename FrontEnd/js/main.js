@@ -2,7 +2,9 @@ import { initScrollHeader } from "./layout/auramen-landing-transparent-scroll-he
 import { initFooterAccordion } from "./layout/auramen-footer.js";
 import { initSearchModal } from "./ui/searchToggleBtn.js";
 import { initAuramenHeader } from "./layout/auramen-header.js";
+import { initGeneralHeader } from "./layout/auramen-general-header.js";
 import "./pages/index.js";
+
 
 // Get base path for GitHub Pages vs local development
 const isGitHubPages = window.location.hostname.includes('github.io');
@@ -21,12 +23,28 @@ async function loadHeader() {
     const html = await response.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(html, "text/html");
-    const headerContent = doc.querySelector("header").outerHTML;
 
+    // Get header content
+    const headerContent = doc.querySelector("header").outerHTML;
     const headerContainer = document.getElementById("general_header");
     if (headerContainer) {
       headerContainer.outerHTML = headerContent;
     }
+
+    // Get mobile drawer and overlay content
+    const mobileDrawer = doc.getElementById("mobileDrawer");
+    const mobileOverlay = doc.getElementById("mobileOverlay");
+
+    // Insert mobile drawer and overlay after header if they don't exist
+    if (mobileDrawer && !document.getElementById("mobileDrawer")) {
+      document.body.insertAdjacentHTML('beforeend', mobileDrawer.outerHTML);
+    }
+    if (mobileOverlay && !document.getElementById("mobileOverlay")) {
+      document.body.insertAdjacentHTML('beforeend', mobileOverlay.outerHTML);
+    }
+
+    // Initialize general header functionality after loading
+    initGeneralHeader();
   } catch (error) {
     console.error("Error loading general header:", error);
   }
