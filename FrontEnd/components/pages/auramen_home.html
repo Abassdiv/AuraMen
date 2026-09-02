@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>أورا مان | AURA MEN</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#c8c6c5",
+                        "tertiary": "#000000",
+                        "tertiary-fixed": "#ffdea5",
+                        "primary-fixed": "#e5e2e1",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed": "#261900",
+                        "secondary-container": "#e0dfde",
+                        "on-tertiary-fixed-variant": "#5d4201",
+                        "surface-container": "#efeded",
+                        "on-secondary-fixed-variant": "#464746",
+                        "inverse-surface": "#303031",
+                        "on-primary-fixed-variant": "#474646",
+                        "secondary-fixed": "#e3e2e0",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e3e2e2",
+                        "on-tertiary-container": "#a17f3b",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed-dim": "#c7c6c5",
+                        "outline": "#747878",
+                        "on-surface": "#1b1c1c",
+                        "on-background": "#1b1c1c",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#1a1c1b",
+                        "surface-container-lowest": "#ffffff",
+                        "outline-variant": "#c4c7c7",
+                        "secondary": "#5e5e5d",
+                        "surface-tint": "#5f5e5e",
+                        "tertiary-fixed-dim": "#e9c176",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "primary": "#000000",
+                        "surface-container-high": "#e9e8e7",
+                        "background": "#fbf9f9",
+                        "inverse-on-surface": "#f2f0f0",
+                        "tertiary-container": "#261900",
+                        "surface-container-low": "#f5f3f3",
+                        "on-primary-container": "#858383",
+                        "primary-container": "#1c1b1b",
+                        "on-secondary-container": "#626361",
+                        "surface-container-highest": "#e3e2e2",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface": "#fbf9f9",
+                        "surface-dim": "#dbdad9",
+                        "surface-bright": "#fbf9f9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "lg": "48px",
+                        "sm": "12px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "xl": "80px",
+                        "margin-desktop": "64px",
+                        "margin-mobile": "20px",
+                        "md": "24px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Tajawal"],
+                        "headline-lg": ["Tajawal"],
+                        "body-sm": ["Tajawal"],
+                        "headline-xl": ["Tajawal"],
+                        "price-display": ["Inter"],
+                        "body-lg": ["Tajawal"],
+                        "label-caps": ["Inter"],
+                        "headline-md": ["Tajawal"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "letterSpacing": "0", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "0", "fontWeight": "700" }],
+                        "price-display": ["20px", { "lineHeight": "1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.4", "letterSpacing": "0", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .product-card:hover .product-img-default {
+            opacity: 0;
+        }
+        .product-card:hover .product-img-hover {
+            opacity: 1;
+        }
+        .product-card:hover .quick-add {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .skeleton {
+            animation: skeleton-loading 1s linear infinite alternate;
+        }
+        
+        @keyframes skeleton-loading {
+            0% {
+                background-color: hsl(0, 0%, 90%);
+            }
+            100% {
+                background-color: hsl(0, 0%, 96%);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-primary-container docked full-width top-0 sticky border-b border-outline-variant dark:border-outline flat no shadows z-50">
+<div class="flex flex-row-reverse justify-between items-center w-full px-margin-mobile md:px-margin-desktop h-16">
+<!-- Mobile Menu Toggle (Left on RTL) -->
+<button class="md:hidden text-primary dark:text-primary-fixed p-2">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<!-- Navigation Links (Center) -->
+<nav class="hidden md:flex flex-row-reverse items-center gap-8 flex-1 justify-center">
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">
+<span class="text-label-caps font-label-caps">الرئيسية</span>
+</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">
+<span class="text-label-caps font-label-caps">المجموعات</span>
+</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">
+<span class="text-label-caps font-label-caps">الإكسسوارات</span>
+</a>
+<a class="text-on-surface-variant dark:text-secondary-fixed-dim font-medium hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200" href="#">
+<span class="text-label-caps font-label-caps">العروض</span>
+</a>
+</nav>
+<!-- Brand Logo (Right on RTL) -->
+<a class="text-headline-md font-headline-md font-bold tracking-tighter text-primary dark:text-primary-fixed flex-shrink-0" href="#">
+                AURA MEN
+            </a>
+<!-- Trailing Icons (Left on RTL) -->
+<div class="flex flex-row-reverse items-center gap-4 flex-shrink-0">
+<button class="text-primary dark:text-on-primary-fixed hover:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button class="text-primary dark:text-on-primary-fixed hover:text-primary transition-colors duration-200 relative">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+<button class="text-primary dark:text-on-primary-fixed hover:text-primary transition-colors duration-200 relative">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">2</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1">
+<!-- Hero Section -->
+<section class="relative w-full h-[819px] md:h-[921px] bg-surface-container flex items-center overflow-hidden">
+<div class="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-full" data-alt="A striking high-fashion portrait of a sophisticated modern man standing in a minimalist architectural space. He wears an impeccably tailored, structural autumn coat in muted charcoal grey. The lighting is editorial and dramatic, casting sharp geometric shadows across the pristine light-mode background. The aesthetic is clean, luxurious, and highly controlled, emphasizing the premium quality of the fabric and the effortless elegance of the composition." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5XfbegI0_KbGcYHnan2mTma264nGnS6nvPC16i40ulcWtt3dFvD1iYkUmiZxFsdkfzD0mij1TvtbopDHDF3rirOkrKryJ6PKJdxtOYrLgJU3c66V3B1f6bgI6twkIY8MTRLqi8FItj-DAw53Qk7363zksFvyDRtDdM5EnjeLvwe_cLkG19fVkoKh_mqaIADlJmVf_VPFk_N_TRhyh_T0GNhH0khfYMrsMKFm8MIyYDM9ng-id1Ebt')"></div>
+<!-- Gradient Overlay for Text Readability -->
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-black/60 rtl:bg-gradient-to-l rtl:from-transparent rtl:via-black/20 rtl:to-black/60 pointer-events-none"></div>
+<div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop text-right">
+<div class="max-w-xl text-white mr-auto">
+<span class="text-label-caps font-label-caps uppercase tracking-widest mb-4 block">تشكيلة الخريف</span>
+<h1 class="text-headline-xl font-headline-xl mb-6">تشكيلة الخريف الجديدة: أناقة بلا مجهود</h1>
+<p class="text-body-lg font-body-lg mb-8 opacity-90">اكتشف أحدث تصاميمنا المصممة للرجل العصري، حيث تلتقي الحرفية العالية بالتصميم البسيط.</p>
+<a class="inline-flex items-center justify-center bg-white text-primary px-8 py-4 rounded font-body-md font-bold hover:bg-surface-container transition-colors duration-300" href="#">
+                        تسوق التشكيلة
+                    </a>
+</div>
+</div>
+</section>
+<!-- Trust Signals Bar -->
+<section class="border-b border-outline-variant bg-surface py-6">
+<div class="max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-x-0 md:divide-x md:divide-x-reverse divide-outline-variant">
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">توصيل سريع</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="straighten">straighten</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">قياس ذكي</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="sync">sync</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">استبدال سلس</span>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="lock">lock</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">دفع آمن</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bestsellers Grid -->
+<section class="py-xl max-w-[1440px] mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-headline-lg font-headline-lg mb-2">الأكثر مبيعاً</h2>
+<p class="text-body-md font-body-md text-on-surface-variant">قطع كلاسيكية لا غنى عنها في خزانة كل رجل.</p>
+</div>
+<a class="text-body-sm font-body-sm font-bold border-b border-primary pb-1 hover:text-on-surface-variant transition-colors" href="#">عرض الكل</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Product Card 1 -->
+<div class="product-card group relative flex flex-col bg-surface border border-outline-variant rounded-lg overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform duration-300 shadow-sm hover:shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+<div class="relative aspect-[3/4] bg-surface-container overflow-hidden">
+<!-- Badges -->
+<div class="absolute top-2 right-2 z-10 flex flex-col gap-2">
+<span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded">جديد</span>
+<span class="bg-surface text-primary text-[10px] font-bold px-2 py-1 rounded border border-outline-variant">خصم 15%</span>
+</div>
+<!-- Wishlist Button -->
+<button class="absolute top-2 left-2 z-10 w-8 h-8 flex items-center justify-center bg-surface/80 backdrop-blur rounded-full text-on-surface-variant hover:text-primary hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite_border">favorite_border</span>
+</button>
+<!-- Images -->
+<img class="product-img-default absolute inset-0 w-full h-full object-cover transition-opacity duration-500" data-alt="A meticulously styled editorial flat lay featuring a pristine, crisp white men's classic shirt folded perfectly on a soft grey textured surface. The lighting is diffused and bright, creating a clean, high-end minimalist aesthetic. Subtle shadows highlight the premium cotton weave and sharp collar structure. The composition is structured and uncluttered, suitable for a luxury fashion brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx8GkcSBo5jjEF2ebfUolRxyxFmurAG8wfRWftTZ2zstxSTJQxvKG6MPvi96cisa2F39Kn8Ia1HGKJNhTkz38uxuNVWQP2OAOK3_geGErNGj6UYwUhNAXKSJzNJdYGQo7fSO4r3rMIQNa7Svw-vIiO6Ri3ajUAOxoD2pNcd3c_xy0AY_5KlPCQmJLPtMMtikW9XBNjJ9HIDWyrLM2bE-OxVgBEsc2isyCrtyjf9mwannaR1oISuEhv"/>
+<img class="product-img-hover absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500" data-alt="A sophisticated medium shot of a handsome male model wearing a crisp, well-fitted white classic shirt. He is standing against a stark, pure white studio background. The lighting is high-key and professional, highlighting the flawless tailoring and premium fabric of the shirt. His expression is confident and relaxed. The overall mood is modern, clean, and luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHx2YwsCI3tsVu_6VX4AlinY5YX7CLW6IUOU_hCULSAGJC0JRYWV1mVr_KjmgTCamOdNcK8MZr4NL9XIA7RcaWwk2Nnzaen1kBhBPM7xHZ1w7l569a6ZvzTIo3rNpnHXbQtSdbFBFFmewnFEdxDd8ixtGq61D0hVjL-HGBywN0YqOifwUg7S9sM_MeMjBLVZIiDG-cahxXqS_9AIkKKp3cINxOpNXTr5nJB6jO3Jp_EtpfiUYS4NpL"/>
+<!-- Quick Add -->
+<div class="quick-add absolute bottom-0 left-0 right-0 bg-surface/95 backdrop-blur border-t border-outline-variant p-4 transform translate-y-full opacity-0 transition-all duration-300 flex justify-center gap-2">
+<button class="w-8 h-8 rounded border border-outline-variant text-body-sm hover:border-primary hover:bg-primary hover:text-white transition-colors">S</button>
+<button class="w-8 h-8 rounded border border-outline-variant text-body-sm hover:border-primary hover:bg-primary hover:text-white transition-colors">M</button>
+<button class="w-8 h-8 rounded border border-outline-variant text-body-sm hover:border-primary hover:bg-primary hover:text-white transition-colors">L</button>
+<button class="w-8 h-8 rounded border border-outline-variant text-body-sm hover:border-primary hover:bg-primary hover:text-white transition-colors">XL</button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<h3 class="text-body-md font-body-md font-bold truncate">قميص كلاسيكي أبيض</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-2">قطن 100%</p>
+<div class="mt-auto flex justify-between items-center" dir="ltr">
+<span class="text-price-display font-price-display">249 <span class="text-body-sm">ر.س</span></span>
+<span class="text-body-sm text-outline line-through">295 ر.س</span>
+</div>
+</div>
+</div>
+<!-- Product Card 2 (Skeleton State for demonstration) -->
+<div class="relative flex flex-col bg-surface border border-outline-variant rounded-lg overflow-hidden">
+<div class="relative aspect-[3/4] skeleton"></div>
+<div class="p-4 flex flex-col gap-2">
+<div class="h-4 w-3/4 skeleton rounded"></div>
+<div class="h-3 w-1/2 skeleton rounded mb-2"></div>
+<div class="mt-auto flex justify-end">
+<div class="h-5 w-1/3 skeleton rounded"></div>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="product-card group relative flex flex-col bg-surface border border-outline-variant rounded-lg overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform duration-300 shadow-sm hover:shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+<div class="relative aspect-[3/4] bg-surface-container overflow-hidden">
+<!-- Wishlist Button -->
+<button class="absolute top-2 left-2 z-10 w-8 h-8 flex items-center justify-center bg-surface/80 backdrop-blur rounded-full text-on-surface-variant hover:text-primary hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite_border">favorite_border</span>
+</button>
+<!-- Images -->
+<img class="product-img-default absolute inset-0 w-full h-full object-cover transition-opacity duration-500" data-alt="A premium pair of tailored charcoal grey men's trousers folded meticulously on a solid light grey surface. The studio lighting is soft and directional, highlighting the fine wool texture and precise crease lines. The aesthetic is extremely minimalist, focusing entirely on the quality and cut of the garment. The mood is sophisticated and understated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIgfJOCkg8M8dyFVThvPW8ii4HcpH0p68HDez0ylKm_X6FC3w0sBc_f0y6-oM690odoE7noGQJR5F6q6LMBbdXWdLlY91gvlQ1ny2KhV4PhfMsI6xSgmXA2M2WbIwe-nmMrMDqrZDmCiX5RZX2Uz4nBC7qu6U42_7NV7L6LWnyRUPeBpbCDxVOhB-PkXPBumdcU_YtOe6acf1UqsniHPl28ooq7VeJ4Tnf4IZnv9amNkjBPStb5MoZ"/>
+<img class="product-img-hover absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500" data-alt="A close-up fashion shot of a male model walking confidently in tailored charcoal grey trousers, paired with sleek black leather derbies. The background is a soft, out-of-focus modern architectural setting. The light is natural and crisp. The focus is on the flawless drape and fit of the trousers, exuding modern masculine elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdWcZ0VtusT-9ReHHZXv5Z_x6Vyp-5341sSLWzRmc0ULZ9ReBvnipAEXEN22VLYkjLWzdGP44pw6AyZ22ArwfLYpPhI_mfTp2vvp1mutwhqa7hKu85NvhvNEMvjTdFZp-u7-qxY3Vxdwqng5nPZEYDCLfKzLERMHhNQ8OfxYPZlR6AxN0hF6FbydU3FPqXuABe5u8Wkr_2CAsZwZHXEZ3RbGFUi5nXW0MIb0C1bDvyW5E_PXz_W_gK"/>
+<!-- Quick Add -->
+<div class="quick-add absolute bottom-0 left-0 right-0 bg-surface/95 backdrop-blur border-t border-outline-variant p-4 transform translate-y-full opacity-0 transition-all duration-300 flex justify-center gap-2">
+<button class="w-8 h-8 rounded border border-outline-variant text-body-sm hover:border-primary hover:bg-primary hover:text-white transition-colors">30</button>
+<button class="w-8 h-8 rounded border border-outline-variant text-body-sm hover:border-primary hover:bg-primary hover:text-white transition-colors">32</button>
+<button class="w-8 h-8 rounded border border-outline-variant text-body-sm hover:border-primary hover:bg-primary hover:text-white transition-colors">34</button>
+<button class="w-8 h-8 rounded border border-outline-variant text-body-sm hover:border-primary hover:bg-primary hover:text-white transition-colors">36</button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<h3 class="text-body-md font-body-md font-bold truncate">بنطال قماشي رمادي</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-2">صوف خفيف</p>
+<div class="mt-auto flex justify-between items-center" dir="ltr">
+<span class="text-price-display font-price-display">320 <span class="text-body-sm">ر.س</span></span>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="product-card group relative flex flex-col bg-surface border border-outline-variant rounded-lg overflow-hidden cursor-pointer hover:-translate-y-1 transition-transform duration-300 shadow-sm hover:shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+<div class="relative aspect-[3/4] bg-surface-container overflow-hidden">
+<!-- Badges -->
+<div class="absolute top-2 right-2 z-10 flex flex-col gap-2">
+<span class="bg-surface-variant text-on-surface text-[10px] font-bold px-2 py-1 rounded">خصم الطقم</span>
+</div>
+<!-- Wishlist Button -->
+<button class="absolute top-2 left-2 z-10 w-8 h-8 flex items-center justify-center bg-surface/80 backdrop-blur rounded-full text-on-surface-variant hover:text-primary hover:bg-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="favorite_border">favorite_border</span>
+</button>
+<!-- Images -->
+<img class="product-img-default absolute inset-0 w-full h-full object-cover transition-opacity duration-500" data-alt="A sleek, minimalist men's leather wallet in deep espresso brown, resting on a stark white architectural plinth. The lighting is sharp and dramatic, casting a clean diagonal shadow. The leather texture is rich and detailed, conveying luxury craftsmanship. The overall image composition is highly geometric and structural, typical of a high-end fashion still life." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs9BAk8HmlzYEtPvy3OWB5JAW8NyhSwLJP-L4hdr8CBz9-8QcNlO4LY2DiDNAkm2rF2S174jYxOWpXKFLNzObVXFfPTed5q1Pu9MrQDHhdS5x03aE8ZiuBB9CXUuyu4FnuuFPZym33iS06-WPHNohm899u9HG-FUNEPOTtW1-5P1wVJ9WihXiunaADwNR-YplQcUIx2SK_uEaZFdr4oTcNlLA97gy8xG7RnyRLXqP_iXWXcqjoCN5o"/>
+<img class="product-img-hover absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500" data-alt="A detailed shot of a well-groomed man's hand holding a slim, deep espresso brown leather wallet. He is dressed in a subtle grey suit sleeve with a crisp white cuff peeking out. The background is a soft, blurred urban light-mode environment. The focus is sharp on the quality of the wallet and the elegant gesture, emphasizing a premium lifestyle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2iv9Tu895xmKmtQaFmdWwLpN-Q6cTkh96C3uH1GNlmFlEZNaiparDRQ047SPtkiosgvUaYfkCQExg2hNDSSndHJUvU3aBBLDzHccpAJ70ouN4wME44zR9R2Ly2eqfbR2u348fp6xnj_9KGFm6L8xXby3461yjCOYzkwy9XqrGPQQHjoT2f4NGkV4Mox2q8L1jlZPqtpyUYp26vJgXhjIw6zjMENgkRd_FbCGPry0QiFXHNCOwlvfN"/>
+<!-- Quick Add -->
+<div class="quick-add absolute bottom-0 left-0 right-0 bg-surface/95 backdrop-blur border-t border-outline-variant p-4 transform translate-y-full opacity-0 transition-all duration-300 flex justify-center gap-2">
+<button class="px-4 py-2 w-full rounded bg-primary text-white text-body-sm font-bold hover:bg-surface-tint transition-colors">أضف للسلة</button>
+</div>
+</div>
+<div class="p-4 flex flex-col gap-1">
+<h3 class="text-body-md font-body-md font-bold truncate">محفظة جلدية كلاسيكية</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-2">جلد طبيعي</p>
+<div class="mt-auto flex justify-between items-center" dir="ltr">
+<span class="text-price-display font-price-display">185 <span class="text-body-sm">ر.س</span></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-black w-full py-xl px-margin-mobile md:px-margin-desktop text-right">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-lg mb-12 border-b border-outline/20 pb-12">
+<!-- Brand & Newsletter -->
+<div class="md:col-span-2">
+<a class="text-headline-lg font-headline-lg text-white block mb-6" href="#">AURA MEN</a>
+<p class="text-body-sm font-body-sm text-on-primary-fixed-variant mb-6 max-w-md">
+                    انضم إلى قائمتنا البريدية للحصول على أحدث التشكيلات والعروض الحصرية.
+                </p>
+<form class="flex flex-col sm:flex-row gap-2 max-w-md">
+<input class="flex-1 bg-surface-inverse text-white border border-outline/30 rounded px-4 py-3 focus:outline-none focus:border-white text-body-sm font-body-md" dir="rtl" placeholder="البريد الإلكتروني" type="email"/>
+<button class="bg-white text-primary px-6 py-3 rounded font-bold text-body-sm hover:bg-surface-variant transition-colors whitespace-nowrap" type="submit">
+                        اشتراك
+                    </button>
+</form>
+</div>
+<!-- Links -->
+<div class="flex flex-col gap-4">
+<h4 class="text-body-md font-body-md font-bold text-white mb-2">روابط سريعة</h4>
+<a class="text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors text-body-sm font-body-sm" href="#">عن أورا</a>
+<a class="text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors text-body-sm font-body-sm" href="#">سياسة الخصوصية</a>
+<a class="text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors text-body-sm font-body-sm" href="#">الشروط والأحكام</a>
+</div>
+<!-- Contact -->
+<div class="flex flex-col gap-4">
+<h4 class="text-body-md font-body-md font-bold text-white mb-2">المساعدة</h4>
+<a class="text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors text-body-sm font-body-sm" href="#">اتصل بنا</a>
+<a class="text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors text-body-sm font-body-sm" href="#">الأسئلة الشائعة</a>
+<a class="text-on-primary-fixed-variant dark:text-secondary-fixed-dim hover:text-tertiary-fixed transition-colors text-body-sm font-body-sm" href="#">تتبع الطلب</a>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-body-sm font-body-sm text-on-primary-fixed-variant">
+                © 2024 أورا مان. جميع الحقوق محفوظة.
+            </p>
+<div class="flex gap-2">
+<!-- Payment Badges Placeholders -->
+<div class="w-10 h-6 bg-surface-inverse rounded border border-outline/30 flex items-center justify-center text-on-primary-fixed-variant text-[10px]">VISA</div>
+<div class="w-10 h-6 bg-surface-inverse rounded border border-outline/30 flex items-center justify-center text-on-primary-fixed-variant text-[10px]">MC</div>
+<div class="w-10 h-6 bg-surface-inverse rounded border border-outline/30 flex items-center justify-center text-on-primary-fixed-variant text-[10px]">MADA</div>
+</div>
+</div>
+</footer>
+</body></html>
