@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AuraMen — General Pages Header</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          neutral: { 900: '#111111' },
+          sand: { 50: '#F9F8F6' },
+          gold: { 500: '#C5A059' },
+          line: '#E5E5E5',
+          muted: '#737373',
+        },
+        fontFamily: {
+          arabic: ['Tajawal', 'sans-serif'],
+          inter: ['Inter', 'sans-serif'],
+        },
+        borderRadius: { card: '8px', control: '4px', modal: '16px' },
+      },
+    },
+  };
+</script>
+<style>
+  body { font-family: 'Tajawal', sans-serif; background:#F9F8F6; }
+  .num { font-family: 'Inter', sans-serif; direction: ltr; unicode-bidi: isolate; font-variant-numeric: tabular-nums; }
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #C5A059; outline-offset: 2px; }
+
+  #siteHeader { transition: box-shadow .25s ease; }
+  #siteHeader[data-elevated="true"] { box-shadow: 0 2px 10px rgba(17,17,17,0.06); }
+
+  .nav-link { position: relative; padding-bottom: 4px; }
+  .nav-link::after {
+    content: ''; position: absolute; right: 50%; left: 50%; bottom: 0;
+    height: 1.5px; background: #C5A059;
+    transition: right .28s cubic-bezier(.4,0,.2,1), left .28s cubic-bezier(.4,0,.2,1);
+  }
+  .nav-link:hover::after, .nav-link:focus-visible::after { right: 0; left: 0; }
+
+  /* Products dropdown (desktop) */
+  #productsMenu { transition: opacity .2s ease, transform .2s ease; transform-origin: top; }
+  #productsMenu[data-open="false"] { opacity: 0; transform: scaleY(.96) translateY(-2px); pointer-events: none; }
+  #productsMenu[data-open="true"] { opacity: 1; transform: scaleY(1) translateY(0); }
+  .chevron { transition: transform .2s ease; }
+  [aria-expanded="true"] .chevron { transform: rotate(180deg); }
+
+  /* Search expand */
+  #searchPanel { transition: opacity .2s ease, transform .2s ease; transform-origin: top; }
+  #searchPanel[data-open="false"] { opacity: 0; transform: scaleY(.95); pointer-events: none; }
+  #searchPanel[data-open="true"] { opacity: 1; transform: scaleY(1); }
+
+  /* Mobile drawer */
+  #mobileOverlay { transition: opacity .3s ease; }
+  #mobileOverlay[data-open="false"] { opacity: 0; pointer-events: none; }
+  #mobileOverlay[data-open="true"] { opacity: 1; }
+  #mobileDrawer { transition: transform .35s cubic-bezier(.4,0,.2,1); }
+
+  /* Mobile "المنتجات" accordion */
+  .acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s cubic-bezier(.4,0,.2,1); }
+  .acc-panel > div { overflow: hidden; }
+  .acc-item[data-open="true"] .acc-panel { grid-template-rows: 1fr; }
+
+  @media (prefers-reduced-motion: reduce) {
+    #siteHeader, .nav-link::after, #productsMenu, .chevron, #searchPanel, #mobileOverlay, #mobileDrawer, .acc-panel { transition: none !important; }
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ============================================================ -->
+<!-- General Pages Header (non-product pages: Home, Lookbook, About, Contact...) -->
+<!-- ============================================================ -->
+<header id="siteHeader" data-elevated="false" class="sticky top-0 z-40 bg-white border-b border-line">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+
+    <!-- Desktop row -->
+    <div class="hidden md:flex items-center h-20">
+
+      <!-- Right: Logo -->
+      <div class="flex-shrink-0">
+        <a href="#" class="flex items-center gap-2" aria-label="AuraMen — الصفحة الرئيسية">
+          <span class="font-inter text-2xl font-bold tracking-wide text-neutral-900">AuraMen</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-gold-500 mb-3"></span>
+        </a>
+      </div>
+
+      <!-- Center: Nav (general pages, products consolidated into a dropdown) -->
+      <nav class="flex-1 flex items-center justify-center gap-9" aria-label="التنقل الرئيسي">
+        <a href="#" class="nav-link text-[15px] font-medium text-neutral-900">الرئيسية</a>
+
+        <div class="relative">
+          <button id="productsMenuBtn" type="button" aria-expanded="false" aria-controls="productsMenu"
+            class="nav-link flex items-center gap-1.5 text-[15px] font-medium text-neutral-900">
+            المنتجات
+            <svg class="chevron w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+
+          <div id="productsMenu" data-open="false"
+            class="absolute right-1/2 translate-x-1/2 top-[calc(100%+14px)] w-56 rounded-card border border-line bg-white p-2 z-10">
+            <a href="#" class="block px-3 py-2.5 rounded-control text-sm text-neutral-900 hover:bg-sand-50 transition-colors">جميع المنتجات</a>
+            <a href="#" class="block px-3 py-2.5 rounded-control text-sm text-neutral-900 hover:bg-sand-50 transition-colors">قمصان</a>
+            <a href="#" class="block px-3 py-2.5 rounded-control text-sm text-neutral-900 hover:bg-sand-50 transition-colors">بنطال</a>
+            <a href="#" class="block px-3 py-2.5 rounded-control text-sm text-neutral-900 hover:bg-sand-50 transition-colors">جاكيتات ومعاطف</a>
+            <a href="#" class="block px-3 py-2.5 rounded-control text-sm text-neutral-900 hover:bg-sand-50 transition-colors">إكسسوارات</a>
+          </div>
+        </div>
+
+        <a href="#" class="nav-link text-[15px] font-medium text-neutral-900">منسق الإطلالات</a>
+        <a href="#" class="nav-link text-[15px] font-medium text-gold-500">العروض</a>
+        <a href="#" class="nav-link text-[15px] font-medium text-neutral-900">من نحن</a>
+      </nav>
+
+      <!-- Left: search trigger, wishlist, cart -->
+      <div class="flex-shrink-0 flex items-center gap-3">
+        <div class="relative">
+          <button id="searchTrigger" type="button" aria-expanded="false" aria-controls="searchPanel"
+            class="h-10 pr-3 pl-4 rounded-control border border-line flex items-center gap-2 text-muted hover:border-neutral-900 hover:text-neutral-900 transition-colors">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="m20 20-3.5-3.5"/>
+            </svg>
+            <span class="text-sm">بحث</span>
+          </button>
+
+          <div id="searchPanel" data-open="false" class="absolute left-0 top-[calc(100%+10px)] w-72 rounded-card border border-line bg-white p-3 z-10">
+            <div class="relative">
+              <svg class="absolute top-1/2 -translate-y-1/2 right-3 w-4 h-4 text-muted pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="m20 20-3.5-3.5"/>
+              </svg>
+              <input id="searchInput" type="text" placeholder="ابحث عن منتج..."
+                class="w-full h-10 rounded-control border border-line bg-sand-50 pr-9 pl-3 text-sm text-neutral-900 placeholder:text-muted focus:bg-white focus:border-gold-500 outline-none transition-colors">
+            </div>
+          </div>
+        </div>
+
+        <button type="button" aria-label="المفضلة" class="relative w-10 h-10 flex items-center justify-center rounded-control hover:bg-sand-50 transition-colors">
+          <svg class="w-5 h-5 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 20s-7-4.35-9.5-8.8C.7 7.6 2.2 4 5.6 4c2 0 3.4 1.1 4.4 2.6C11 5.1 12.4 4 14.4 4c3.4 0 4.9 3.6 3.1 7.2C19 15.65 12 20 12 20Z"/>
+          </svg>
+          <span class="num absolute -top-1 -left-1 min-w-[18px] h-[18px] px-1 rounded-full bg-gold-500 text-white text-[10px] font-semibold flex items-center justify-center">2</span>
+        </button>
+
+        <button type="button" aria-label="سلة المشتريات" class="relative w-10 h-10 flex items-center justify-center rounded-control hover:bg-sand-50 transition-colors">
+          <svg class="w-5 h-5 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 8h12l-1 12H7L6 8Z"/>
+            <path stroke-linecap="round" d="M9 8V6a3 3 0 0 1 6 0v2"/>
+          </svg>
+          <span class="num absolute -top-1 -left-1 min-w-[18px] h-[18px] px-1 rounded-full bg-[#111111] text-white text-[10px] font-semibold flex items-center justify-center">3</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile row -->
+    <div class="flex md:hidden items-center h-16 relative">
+      <button id="openMobileDrawer" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobileDrawer"
+        class="w-10 h-10 -mr-2 flex items-center justify-center rounded-control hover:bg-sand-50 transition-colors">
+        <svg class="w-6 h-6 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
+          <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/>
+        </svg>
+      </button>
+
+      <a href="#" class="absolute left-1/2 -translate-x-1/2 flex items-center gap-1.5" aria-label="AuraMen — الصفحة الرئيسية">
+        <span class="font-inter text-lg font-bold tracking-wide text-neutral-900">AuraMen</span>
+        <span class="w-1 h-1 rounded-full bg-gold-500 mb-2"></span>
+      </a>
+
+      <button type="button" aria-label="سلة المشتريات" class="relative w-10 h-10 -ml-2 ms-auto flex items-center justify-center rounded-control hover:bg-sand-50 transition-colors">
+        <svg class="w-5 h-5 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 8h12l-1 12H7L6 8Z"/>
+          <path stroke-linecap="round" d="M9 8V6a3 3 0 0 1 6 0v2"/>
+        </svg>
+        <span class="num absolute -top-1 -left-1 min-w-[16px] h-[16px] px-1 rounded-full bg-[#111111] text-white text-[9px] font-semibold flex items-center justify-center">3</span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- Mobile drawer + overlay                                       -->
+<!-- ============================================================ -->
+<div id="mobileOverlay" data-open="false" class="fixed inset-0 z-40 bg-neutral-900/40 md:hidden"></div>
+
+<aside id="mobileDrawer" class="fixed inset-y-0 right-0 z-50 w-[82%] max-w-sm bg-white translate-x-full md:hidden flex flex-col"
+  role="dialog" aria-modal="true" aria-label="قائمة التنقل">
+
+  <div class="flex items-center justify-between h-16 px-5 border-b border-line flex-shrink-0">
+    <span class="font-inter text-lg font-bold tracking-wide text-neutral-900">AuraMen</span>
+    <button id="closeMobileDrawer" type="button" aria-label="إغلاق القائمة" class="w-9 h-9 flex items-center justify-center rounded-control hover:bg-sand-50 transition-colors">
+      <svg class="w-5 h-5 text-neutral-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+        <path stroke-linecap="round" d="m6 6 12 12M18 6 6 18"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="px-5 pt-4">
+    <div class="relative">
+      <svg class="absolute top-1/2 -translate-y-1/2 right-3 w-4 h-4 text-muted pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="m20 20-3.5-3.5"/>
+      </svg>
+      <input type="text" placeholder="ابحث عن منتج..."
+        class="w-full h-11 rounded-control border border-line bg-sand-50 pr-9 pl-3 text-sm text-neutral-900 placeholder:text-muted focus:bg-white focus:border-gold-500 outline-none transition-colors">
+    </div>
+  </div>
+
+  <nav class="flex-1 overflow-y-auto px-5 pt-4" aria-label="التنقل الرئيسي - جوال">
+    <ul class="flex flex-col divide-y divide-line">
+      <li><a href="#" class="block py-4 text-base font-medium text-neutral-900">الرئيسية</a></li>
+
+      <!-- المنتجات as an accordion disclosure -->
+      <li class="acc-item" data-open="false">
+        <button type="button" class="acc-trigger w-full flex items-center justify-between py-4 text-base font-medium text-neutral-900" aria-expanded="false">
+          المنتجات
+          <svg class="chevron w-4 h-4 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="acc-panel">
+          <div>
+            <ul class="flex flex-col gap-1 pb-3 pr-3">
+              <li><a href="#" class="block py-2 text-sm text-muted">جميع المنتجات</a></li>
+              <li><a href="#" class="block py-2 text-sm text-muted">قمصان</a></li>
+              <li><a href="#" class="block py-2 text-sm text-muted">بنطال</a></li>
+              <li><a href="#" class="block py-2 text-sm text-muted">جاكيتات ومعاطف</a></li>
+              <li><a href="#" class="block py-2 text-sm text-muted">إكسسوارات</a></li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <li><a href="#" class="block py-4 text-base font-medium text-neutral-900">منسق الإطلالات</a></li>
+      <li><a href="#" class="block py-4 text-base font-medium text-gold-500">العروض</a></li>
+      <li><a href="#" class="block py-4 text-base font-medium text-neutral-900">من نحن</a></li>
+    </ul>
+  </nav>
+
+  <div class="px-5 py-5 border-t border-line flex-shrink-0">
+    <a href="#" class="flex items-center gap-3 text-sm font-medium text-neutral-900">
+      <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 20s-7-4.35-9.5-8.8C.7 7.6 2.2 4 5.6 4c2 0 3.4 1.1 4.4 2.6C11 5.1 12.4 4 14.4 4c3.4 0 4.9 3.6 3.1 7.2C19 15.65 12 20 12 20Z"/>
+      </svg>
+      المفضلة
+      <span class="num mr-auto min-w-[20px] h-5 px-1.5 rounded-full bg-gold-500 text-white text-[11px] font-semibold flex items-center justify-center">2</span>
+    </a>
+  </div>
+</aside>
+
+<!-- ============================================================ -->
+<!-- Demo content                                                  -->
+<!-- ============================================================ -->
+<main class="max-w-3xl mx-auto px-4 md:px-8 py-10">
+  <p class="text-sm text-muted leading-relaxed">
+    هذا الهيدر مخصص للصفحات العامة (الرئيسية، منسق الإطلالات، من نحن...) — تفاصيل الأقسام (قمصان، بنطال...) موجودة داخل قائمة "المنتجات" المنسدلة بدل ظهورها كروابط منفصلة في الشريط الرئيسي.
+  </p>
+</main>
+
+<!-- ============================================================ -->
+<!-- VANILLA JS                                                    -->
+<!-- ============================================================ -->
+<script>
+  (function () {
+    // ---------- Elevation shadow on scroll ----------
+    const header = document.getElementById('siteHeader');
+    window.addEventListener('scroll', () => {
+      header.setAttribute('data-elevated', String(window.scrollY > 4));
+    }, { passive: true });
+
+    // ---------- Products dropdown (desktop) ----------
+    const productsBtn = document.getElementById('productsMenuBtn');
+    const productsMenu = document.getElementById('productsMenu');
+
+    function toggleProductsMenu(open) {
+      productsMenu.setAttribute('data-open', String(open));
+      productsBtn.setAttribute('aria-expanded', String(open));
+    }
+    productsBtn.addEventListener('click', () => {
+      toggleProductsMenu(productsMenu.getAttribute('data-open') !== 'true');
+    });
+
+    // ---------- Search trigger (desktop) ----------
+    const searchTrigger = document.getElementById('searchTrigger');
+    const searchPanel = document.getElementById('searchPanel');
+    const searchInput = document.getElementById('searchInput');
+
+    function toggleSearch(open) {
+      searchPanel.setAttribute('data-open', String(open));
+      searchTrigger.setAttribute('aria-expanded', String(open));
+      if (open) setTimeout(() => searchInput.focus(), 150);
+    }
+    searchTrigger.addEventListener('click', () => {
+      toggleSearch(searchPanel.getAttribute('data-open') !== 'true');
+    });
+
+    // Close either desktop panel on outside click / Escape
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#productsMenuBtn') && !e.target.closest('#productsMenu')) toggleProductsMenu(false);
+      if (!e.target.closest('#searchTrigger') && !e.target.closest('#searchPanel')) toggleSearch(false);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { toggleProductsMenu(false); toggleSearch(false); }
+    });
+
+    // ---------- Mobile drawer ----------
+    const openBtn = document.getElementById('openMobileDrawer');
+    const closeBtn = document.getElementById('closeMobileDrawer');
+    const drawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('mobileOverlay');
+
+    function openDrawer() {
+      drawer.classList.remove('translate-x-full');
+      drawer.classList.add('translate-x-0');
+      overlay.setAttribute('data-open', 'true');
+      openBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      drawer.classList.remove('translate-x-0');
+      drawer.classList.add('translate-x-full');
+      overlay.setAttribute('data-open', 'false');
+      openBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    openBtn.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+
+    // ---------- Mobile "المنتجات" accordion ----------
+    document.querySelectorAll('.acc-item').forEach((item) => {
+      const trigger = item.querySelector('.acc-trigger');
+      trigger.addEventListener('click', () => {
+        const isOpen = item.getAttribute('data-open') === 'true';
+        item.setAttribute('data-open', String(!isOpen));
+        trigger.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
