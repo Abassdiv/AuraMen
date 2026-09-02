@@ -16,8 +16,20 @@ export function initGeneralHeader() {
         productsMenu.setAttribute('data-open', String(open));
         productsBtn.setAttribute('aria-expanded', String(open));
       }
-      productsBtn.addEventListener('click', () => {
-        toggleProductsMenu(productsMenu.getAttribute('data-open') !== 'true');
+      // Open menu on hover
+      productsBtn.addEventListener('mouseenter', () => {
+        toggleProductsMenu(true);
+      });
+      // Close menu when leaving the button or menu
+      productsBtn.addEventListener('mouseleave', () => {
+        setTimeout(() => {
+          if (!productsMenu.matches(':hover')) {
+            toggleProductsMenu(false);
+          }
+        }, 100);
+      });
+      productsMenu.addEventListener('mouseleave', () => {
+        toggleProductsMenu(false);
       });
     }
 

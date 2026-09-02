@@ -14,9 +14,28 @@
   .nav-link:hover::after, .nav-link:focus-visible::after { right: 0; left: 0; }
 
   /* Products dropdown (desktop) */
-  #productsMenu { transition: opacity .2s ease, transform .2s ease; transform-origin: top; }
-  #productsMenu[data-open="false"] { opacity: 0; transform: scaleY(.96) translateY(-2px); pointer-events: none; }
-  #productsMenu[data-open="true"] { opacity: 1; transform: scaleY(1) translateY(0); }
+  #productsMenu {
+    transition: opacity .25s ease, transform .25s ease, box-shadow .25s ease;
+    transform-origin: top;
+    box-shadow: 0 4px 12px rgba(17, 17, 17, 0.08);
+  }
+  #productsMenu[data-open="false"] {
+    opacity: 0;
+    transform: scaleY(.96) translateY(-4px);
+    pointer-events: none;
+  }
+  #productsMenu[data-open="true"] {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+    box-shadow: 0 8px 24px rgba(17, 17, 17, 0.12);
+  }
+  #productsMenu a {
+    transition: background-color .15s ease, color .15s ease;
+  }
+  #productsMenu a:hover {
+    background-color: #F9F8F6;
+    color: #C5A059;
+  }
   .chevron { transition: transform .2s ease; }
   [aria-expanded="true"] .chevron { transform: rotate(180deg); }
 
