@@ -10,7 +10,7 @@
 
       <!-- Right: Logo -->
       <div class="flex-shrink-0">
-        <a href="#" class="flex items-center gap-2" aria-label="AuraMen — الصفحة الرئيسية">
+        <a href="auramen_home.html" class="flex items-center gap-2" aria-label="AuraMen — الصفحة الرئيسية">
           <span class="font-inter text-2xl font-bold tracking-wide text-neutral-900">AuraMen</span>
           <span class="w-1.5 h-1.5 rounded-full bg-gold-500 mb-3"></span>
         </a>
@@ -142,12 +142,16 @@
 
       <!-- المنتجات as an accordion disclosure -->
       <li class="acc-item" data-open="false">
-        <button type="button" class="acc-trigger w-full flex items-center justify-between py-4 text-base font-medium text-neutral-900" aria-expanded="false">
-          المنتجات
-          <svg class="chevron w-4 h-4 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/>
-          </svg>
-        </button>
+        <div class="w-full flex items-center justify-between py-4">
+          <a href="products.html" class="text-base font-medium text-neutral-900">
+            المنتجات
+          </a>
+          <button class="acc-trigger flex items-center justify-center p-2" aria-expanded="false">
+            <svg class="chevron w-4 h-4 text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/>
+            </svg>
+          </button>
+        </div>
         <div class="acc-panel">
           <div>
             <ul class="flex flex-col gap-1 pb-3 pr-3">
