@@ -55,6 +55,10 @@
   .acc-panel > div { overflow: hidden; }
   .acc-item[data-open="true"] .acc-panel { grid-template-rows: 1fr; }
 
+  /* Class-based fallback - more specific */
+  .acc-item.open .acc-panel { grid-template-rows: 1fr !important; }
+  .acc-item:not(.open) .acc-panel { grid-template-rows: 0fr !important; }
+
   @media (prefers-reduced-motion: reduce) {
     #siteHeader, .nav-link::after, #productsMenu, .chevron, #searchPanel, #mobileOverlay, #mobileDrawer, .acc-panel { transition: none !important; }
   }

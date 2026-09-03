@@ -52,10 +52,32 @@ async function loadHeader() {
   }
 }
 
+// Load search modal using async/await
+async function loadModals() {
+  try {
+    const response = await fetch(basePath + "components/ui/searchModal.html");
+    const html = await response.text();
+    const searchModalContainer = document.getElementById("searchModal");
+    if (searchModalContainer) {
+      searchModalContainer.innerHTML = html;
+    }
+  } catch (error) {
+    console.error("Error loading search modal:", error);
+  }
+}
+
 // Load external HTML components using fetch
 document.addEventListener("DOMContentLoaded", async () => {
+
+    
   // Load general header first to avoid null errors
   await loadHeader();
+
+  // Load search modal before initializing it
+  await loadModals();
+
+  // Initialize search modal for pages using general header
+  initSearchModal();
 
   // Load header
   fetch(basePath + "components/layout/auramen-landing-transparent-scroll-header.html")
@@ -70,7 +92,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         headerContainer.outerHTML = headerContent;
         // Initialize scroll header after header is loaded
         initScrollHeader();
-        // Initialize search modal after header is loaded
+        // Initialize search modal after modal is loaded
         initSearchModal();
       }
     })
@@ -127,3 +149,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     .catch((error) => console.error("Error loading store footer:", error));
 
 });
+
+  

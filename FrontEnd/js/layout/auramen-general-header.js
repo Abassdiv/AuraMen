@@ -34,22 +34,10 @@ export function initGeneralHeader() {
     }
 
     // ---------- Search trigger (desktop) ----------
-    const searchTrigger = document.getElementById('searchTrigger');
-    const searchPanel = document.getElementById('searchPanel');
-    const searchInput = document.getElementById('searchInput');
+    // Note: Search functionality is now handled by searchToggleBtn.js
+    // The search panel is removed and replaced with modal search
 
-    if (searchTrigger && searchPanel && searchInput) {
-      function toggleSearch(open) {
-        searchPanel.setAttribute('data-open', String(open));
-        searchTrigger.setAttribute('aria-expanded', String(open));
-        if (open) setTimeout(() => searchInput.focus(), 150);
-      }
-      searchTrigger.addEventListener('click', () => {
-        toggleSearch(searchPanel.getAttribute('data-open') !== 'true');
-      });
-    }
-
-    // Close either desktop panel on outside click / Escape
+    // Close desktop panel on outside click / Escape
     document.addEventListener('click', (e) => {
       if (productsBtn && productsMenu) {
         if (!e.target.closest('#productsMenuBtn') && !e.target.closest('#productsMenu')) {
@@ -57,19 +45,13 @@ export function initGeneralHeader() {
           productsBtn.setAttribute('aria-expanded', 'false');
         }
       }
-      if (searchTrigger && searchPanel) {
-        if (!e.target.closest('#searchTrigger') && !e.target.closest('#searchPanel')) {
-          searchPanel.setAttribute('data-open', 'false');
-          searchTrigger.setAttribute('aria-expanded', 'false');
-        }
-      }
     });
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        if (productsMenu) productsMenu.setAttribute('data-open', 'false');
-        if (productsBtn) productsBtn.setAttribute('aria-expanded', 'false');
-        if (searchPanel) searchPanel.setAttribute('data-open', 'false');
-        if (searchTrigger) searchTrigger.setAttribute('aria-expanded', 'false');
+        if (productsBtn && productsMenu) {
+          productsMenu.setAttribute('data-open', 'false');
+          productsBtn.setAttribute('aria-expanded', 'false');
+        }
       }
     });
 
@@ -101,13 +83,24 @@ export function initGeneralHeader() {
     }
 
     // ---------- Mobile "المنتجات" accordion ----------
-    document.querySelectorAll('.acc-item').forEach((item) => {
+    const accItems = document.querySelectorAll('.acc-item');
+    accItems.forEach((item) => {
       const trigger = item.querySelector('.acc-trigger');
       if (trigger) {
-        trigger.addEventListener('click', () => {
-          const isOpen = item.getAttribute('data-open') === 'true';
-          item.setAttribute('data-open', String(!isOpen));
-          trigger.setAttribute('aria-expanded', String(!isOpen));
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault(); // Prevent default behavior
+          e.stopPropagation(); // Stop event bubbling
+          const isOpen = item.classList.contains('open');
+          const newState = !isOpen;
+          // Toggle class
+          if (newState) {
+            item.classList.add('open');
+          } else {
+            item.classList.remove('open');
+          }
+          // Also update data-open for CSS compatibility
+          item.dataset.open = newState.toString();
+          trigger.setAttribute('aria-expanded', newState.toString());
         });
       }
     });
