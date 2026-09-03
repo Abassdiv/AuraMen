@@ -4,6 +4,8 @@ import { initSearchModal } from "./ui/searchToggleBtn.js";
 import { initAuramenHeader } from "./layout/auramen-header.js";
 import { initGeneralHeader } from "./layout/auramen-general-header.js";
 import "./pages/index.js";
+import { initStoreFooter } from "./layout/auramen-store-footer.js";
+
 
 
 // Get base path for GitHub Pages vs local development
@@ -106,4 +108,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     })
     .catch((error) => console.error("Error loading auramen header:", error));
+
+  // Load store footer
+  fetch(basePath + "components/layout/auramen-store-footer.html")
+    .then((response) => response.text())
+    .then((html) => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const footerContent = doc.querySelector("footer").outerHTML;
+
+      const footerContainer = document.getElementById("store-footer-placeholder");
+      if (footerContainer) {
+        footerContainer.outerHTML = footerContent;
+        // Initialize store footer accordion after footer is loaded
+        initStoreFooter();
+      }
+    })
+    .catch((error) => console.error("Error loading store footer:", error));
+
 });

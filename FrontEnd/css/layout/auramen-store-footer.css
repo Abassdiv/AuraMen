@@ -1,0 +1,16 @@
+ body { font-family: 'Tajawal', sans-serif; background:#fff; }
+  .num { font-family: 'Inter', sans-serif; direction: ltr; unicode-bidi: isolate; font-variant-numeric: tabular-nums; }
+
+  .acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s cubic-bezier(.4,0,.2,1); }
+  .acc-panel > div { overflow: hidden; }
+  .acc-item[data-open="true"] .acc-panel { grid-template-rows: 1fr; }
+  .acc-item[data-open="true"] .acc-chevron { transform: rotate(180deg); }
+  .acc-chevron { transition: transform .3s cubic-bezier(.4,0,.2,1); }
+
+  a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 2px solid #C5A059; outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .acc-panel, .acc-chevron { transition: none !important; }
+  }
