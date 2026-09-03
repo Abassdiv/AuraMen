@@ -41,8 +41,8 @@
 
   /* Search expand */
   #searchPanel { transition: opacity .2s ease, transform .2s ease; transform-origin: top; }
-  #searchPanel[data-open="false"] { opacity: 0; transform: scaleY(.95); pointer-events: none; }
-  #searchPanel[data-open="true"] { opacity: 1; transform: scaleY(1); }
+  #searchPanel[data-open="true"] { opacity: 0; transform: scaleY(.95); pointer-events: none; }
+  #searchPanel[data-open="false"] { opacity: 1; transform: scaleY(1); }
 
   /* Mobile drawer */
   #mobileOverlay { transition: opacity .3s ease; }
